@@ -32,7 +32,7 @@ public class CatalogController {
         return "catalog/all-products";
     }
 
-    @GetMapping("/{id}/products")
+    @GetMapping("/categories/{id}/products")
     public String productsByCategory(@PathVariable Integer id, Model model) {
         model.addAttribute("products", this.categoryService.getAllProducts(id));
 
