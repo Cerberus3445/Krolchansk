@@ -1,0 +1,446 @@
+/* order.css - стили для страницы оформления заказа */
+
+/* Импортируем основные переменные из основного стиля (можно продублировать) */
+:root {
+    --color-white: #ffffff;
+    --color-bg-gradient-start: #6f8224;
+    --color-bg-gradient-end: #1c2b0c;
+    --color-btn-green: #6b9a44;
+    --color-btn-green-hover: #5a8539;
+    --color-prices-bg: #1a2229;
+    --color-text-muted: rgba(255, 255, 255, 0.8);
+    --color-text-muted-60: rgba(255, 255, 255, 0.6);
+    --font-display: "Etude Noire", sans-serif;
+    --font-body: "Farabee", sans-serif;
+    --container: min(1840px, 100% - 80px);
+    --radius: 20px;
+    --transition: 0.2s ease;
+    --bg-panel: #2A323D;
+    --border-color: #3A4452;
+}
+
+/* Базовые сбросы и шрифты (скопированы из основного стиля, чтобы страница не потеряла внешний вид) */
+@font-face {
+    font-family: "Etude Noire";
+    src: local("Etude Noire"),
+    url("fonts/EtudeNoire.woff2") format("woff2"),
+    url("fonts/EtudeNoire.woff") format("woff");
+    font-weight: 400 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Farabee";
+    src: local("Farabee"),
+    url("fonts/Farabee.woff2") format("woff2"),
+    url("fonts/Farabee.woff") format("woff");
+    font-weight: 400 600;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-white);
+    background-color: var(--color-prices-bg);
+    background-image: url("../images/pattern.svg");
+    background-repeat: repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Шапка (как на внутренних страницах) */
+.site-header {
+    background: var(--bg-panel);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    backdrop-filter: blur(4px);
+    background: rgba(42, 50, 61, 0.95);
+}
+.site-header .container {
+    max-width: 1840px;
+    margin: 0 auto;
+    padding: 12px 40px;
+}
+.site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+.logo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.logo__main {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--color-white);
+}
+.logo__sub {
+    font-size: 14px;
+    color: var(--color-text-muted-60);
+}
+.nav {
+    display: flex;
+    gap: 32px;
+}
+.nav__link {
+    font-size: 18px;
+    color: var(--color-text-muted);
+    text-decoration: none;
+    transition: color var(--transition);
+}
+.nav__link:hover,
+.nav__link.active {
+    color: var(--color-btn-green);
+}
+.btn--callback {
+    background: var(--color-btn-green);
+    color: var(--color-white);
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    font-size: 18px;
+    font-weight: 500;
+    transition: background var(--transition), transform var(--transition);
+    text-decoration: none;
+    display: inline-block;
+}
+.btn--callback:hover {
+    background: var(--color-btn-green-hover);
+    transform: translateY(-1px);
+}
+.header__burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.header__burger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-white);
+    border-radius: 2px;
+}
+.nav__close, .nav__backdrop, .nav__cta {
+    display: none;
+}
+
+/* Основной контент */
+main {
+    flex: 1;
+}
+.container {
+    max-width: var(--container);
+    margin: 0 auto;
+    padding: 0 40px;
+    width: 100%;
+}
+
+/* Форма заказа */
+.order-form-wrap {
+    max-width: 800px;
+    margin: 40px auto;
+    background: var(--bg-panel);
+    border-radius: 20px;
+    padding: 40px 32px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.order-form__title {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--color-white);
+    margin-bottom: 32px;
+    text-align: center;
+}
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+.order-form__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.order-form__field {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 16px 16px;
+    cursor: text;
+    transition: box-shadow 0.2s;
+}
+.order-form__field input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-family: var(--font-body);
+    color: #1a2229;
+    background: transparent;
+}
+.order-form__field input::placeholder {
+    color: #aaa;
+}
+.input--error {
+    border: 2px solid #ff4d4f !important;
+    background-color: rgba(255, 77, 79, 0.05);
+}
+.error-text {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #ff4d4f;
+    font-size: 13px;
+    margin-top: 6px;
+    padding-left: 4px;
+    animation: fadeInError 0.2s ease;
+}
+.error-text::before {
+    content: "⚠️";
+    font-size: 13px;
+}
+@keyframes fadeInError {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.form-error-summary {
+    background: rgba(255, 77, 79, 0.1);
+    border-left: 4px solid #ff4d4f;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    color: #ff4d4f;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+.form-error-summary::before {
+    content: "⚠️";
+    font-size: 16px;
+}
+.order-form__options {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+.order-form__options-row {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.order-form__options-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.order-form__checkbox {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    color: #eaeaea;
+    cursor: pointer;
+}
+.order-form__checkbox input {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    accent-color: var(--color-btn-green);
+}
+.btn--submit {
+    background: var(--color-btn-green);
+    color: white;
+    border: none;
+    border-radius: 40px;
+    padding: 12px 24px;
+    font-size: 22px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background var(--transition), transform var(--transition);
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+}
+.btn--submit:hover {
+    background: var(--color-btn-green-hover);
+    transform: translateY(-2px);
+}
+
+/* Футер */
+.footer {
+    background: #2d353a;
+    padding: 40px 40px;
+    margin-top: auto;
+}
+.footer__inner {
+    max-width: 1840px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+.footer__logo-main {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+}
+.footer__logo-sub {
+    font-size: 14px;
+    color: #ccc;
+}
+.footer__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 16px;
+    color: #ccc;
+}
+.footer__contacts a {
+    color: #ccc;
+    text-decoration: none;
+}
+.footer__contacts a:hover {
+    color: #fff;
+}
+.footer__copy {
+    font-size: 14px;
+    color: #ccc;
+}
+.footer__vk img {
+    width: 32px;
+    height: 32px;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .container {
+        padding: 0 20px;
+    }
+    .order-form-wrap {
+        padding: 32px 24px;
+        margin: 30px auto;
+    }
+    .order-form__title {
+        font-size: 30px;
+    }
+    .site-header .container {
+        padding: 12px 20px;
+    }
+    .nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 280px;
+        background: #1c2f0d;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        transform: translateX(100%);
+        transition: transform 0.3s;
+        z-index: 1000;
+        padding: 60px 20px 20px;
+        gap: 0;
+    }
+    .nav.nav--open {
+        transform: translateX(0);
+    }
+    .nav__close {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    .nav__close span {
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background: #fff;
+        top: 14px;
+        left: 3px;
+    }
+    .nav__close span:first-child { transform: rotate(45deg); }
+    .nav__close span:last-child { transform: rotate(-45deg); }
+    .nav__link {
+        display: block;
+        padding: 14px 0;
+        font-size: 18px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .nav__cta {
+        display: block;
+        margin-top: 20px;
+        padding: 12px;
+        background: var(--color-btn-green);
+        text-align: center;
+        border-radius: 8px;
+        color: white;
+        text-decoration: none;
+    }
+    .btn--callback {
+        display: none;
+    }
+    .header__burger {
+        display: flex;
+    }
+    .footer__inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .order-form-wrap {
+        padding: 24px 20px;
+        margin: 20px auto;
+    }
+    .order-form__title {
+        font-size: 26px;
+    }
+    .order-form__field {
+        padding: 12px 12px;
+    }
+    .order-form__field input {
+        font-size: 16px;
+    }
+    .order-form__checkbox {
+        font-size: 16px;
+    }
+    .btn--submit {
+        font-size: 20px;
+        padding: 10px 20px;
+        max-width: 260px;
+    }
+}

@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Оформление заказа — Крольчанск</title>
   <link rel="stylesheet" th:href="@{/css/index.css}" href="../../static/css/index.css">
+  <link rel="stylesheet" th:href="@{/css/checkout.css}" href="../../static/css/checkout.css">
   <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}" href="../../static/images/favicon.ico">
 </head>
 <body>
 <header class="site-header">
   <div class="container">
     <div class="site-header__inner">
-      <a href="/static" class="logo">
+      <a href="/" class="logo">
         <span class="logo__main">КРОЛЬЧАНСК</span>
         <span class="logo__sub">СОЮЗ фермерских хозяйств</span>
       </a>
@@ -19,24 +20,24 @@
         <button class="nav__close" type="button" aria-label="Закрыть меню">
           <span></span><span></span>
         </button>
-        <a href="/static" class="nav__link">Главная</a>
-        <a href="/categories" class="nav__link active">Категории</a>
-        <a href="/products" class="nav__link">Продукты</a>
-        <a href="/order" class="nav__link">Заказать</a>
+        <a href="/" class="nav__link">Главная</a>
+        <a href="/catalog/categories" class="nav__link active">Категории</a>
+        <a href="/catalog/products" class="nav__link">Продукты</a>
+        <a href="/order/checkout" class="nav__link">Заказать</a>
         <a href="#contacts" class="nav__link">Контакты</a>
-        <a href="/order" class="nav__cta">Заказать звонок</a>
+        <a href="/order/checkout" class="nav__cta">Заказать звонок</a>
       </nav>
       <div class="nav__backdrop" aria-hidden="true"></div>
       <button class="header__burger" type="button" aria-label="Открыть меню">
         <span></span><span></span><span></span>
       </button>
-      <a href="/order" class="btn btn--callback">Заказать звонок</a>
+      <a href="/order/checkout" class="btn btn--callback">Заказать звонок</a>
     </div>
   </div>
 </header>
 
 <main>
-  <div class="container">
+  <div class="order-page">
     <div class="order-form-wrap">
       <h2 class="order-form__title">Оформление заказа</h2>
 
@@ -113,6 +114,6 @@
     </div>
   </div>
 </footer>
-<script th:src="@{/js/script.js}" src="../static/js/script.js"></script>
+<script th:src="@{/js/script.js}" src="../../static/js/script.js"></script>
 </body>
 </html>

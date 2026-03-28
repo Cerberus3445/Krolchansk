@@ -11,7 +11,7 @@
 <header class="site-header">
   <div class="container">
     <div class="site-header__inner">
-      <a href="/static" class="logo">
+      <a href="/" class="logo">
         <span class="logo__main">КРОЛЬЧАНСК</span>
         <span class="logo__sub">СОЮЗ фермерских хозяйств</span>
       </a>
@@ -19,18 +19,18 @@
         <button class="nav__close" type="button" aria-label="Закрыть меню">
           <span></span><span></span>
         </button>
-        <a href="/static" class="nav__link">Главная</a>
-        <a href="/categories" class="nav__link active">Категории</a>
-        <a href="/products" class="nav__link">Продукты</a>
-        <a href="/order" class="nav__link">Заказать</a>
+        <a href="/" class="nav__link">Главная</a>
+        <a href="/catalog/categories" class="nav__link active">Категории</a>
+        <a href="/catalog/products" class="nav__link">Продукты</a>
+        <a href="/order/checkout" class="nav__link">Заказать</a>
         <a href="#contacts" class="nav__link">Контакты</a>
-        <a href="/order" class="nav__cta">Заказать звонок</a>
+        <a href="/order/checkout" class="nav__cta">Заказать звонок</a>
       </nav>
       <div class="nav__backdrop" aria-hidden="true"></div>
       <button class="header__burger" type="button" aria-label="Открыть меню">
         <span></span><span></span><span></span>
       </button>
-      <a href="/order" class="btn btn--callback">Заказать звонок</a>
+      <a href="/order/checkout" class="btn btn--callback">Заказать звонок</a>
     </div>
   </div>
 </header>
@@ -39,7 +39,9 @@
   <div class="container">
     <h1 class="page-title">Категории продукции</h1>
     <div class="categories-grid">
-      <a th:each="cat : ${categories}" th:href="@{/{id}/products(categoryId=${cat.id})}" class="category-card-link">
+      <a th:each="cat : ${categories}"
+         th:href="@{/catalog/categories/{id}/products(id=${cat.id})}"
+         class="category-card-link">
         <div class="category-card">
           <div class="category-card__image" th:style="'background-image: url(' + @{/api/v1/images/category/{id}(id=${cat.id})} + ')'"></div>
           <h3 class="category-card__title" th:text="${cat.title}"></h3>
