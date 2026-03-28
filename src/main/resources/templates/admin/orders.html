@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/admin-common.css}" href="../../static/css/admin-common.css">
+    <link rel="stylesheet" th:href="@{/css/orders.css}" href="../../static/css/orders.css">
+    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}" href="../../static/images/favicon.ico">
+    <title>Заказы - Крольчанск</title>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo">
+            <h1>КРОЛЬЧАНСК</h1>
+            <p>СОЮЗ фермерских хозяйств</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/admin/categories">Категории</a></li>
+                <li><a href="/admin/products">Продукты</a></li>
+                <li><a href="/admin/orders">Заказы</a></li>
+            </ul>
+        </nav>
+        <a href="/" class="btn">Главная страница</a>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h2>Все заказы</h2>
+        </div>
+
+        <div class="orders-grid">
+            <div class="order-card" th:each="order : ${orders}">
+                <div class="order-header">
+                    <h3 th:text="'Id ' + ${order.id} "></h3>
+                    <span class="order-date"
+                          th:text="${#temporals.format(order.createdAt, 'dd.MM.yyyy HH:mm')}">
+                26.03.2026 14:30
+            </span>
+                </div>
+
+                <div class="order-body">
+                    <p><strong>Имя:</strong> <span th:text="${order.contactName}"></span></p>
+                    <p><strong>Телефон:</strong> <span th:text="${order.contactPhone}"></span></p>
+                    <p><strong>Адрес:</strong> <span th:text="${order.deliveryAddress}"></span></p>
+                    <p class="order-details-text"><strong>Детали:</strong> <span th:text="${order.orderDetails}"></span></p>
+                </div>
+
+                <div class="options">
+            <span class="tag" th:classappend="${order.extraCutting} ? 'tag--true' : 'tag--false'"
+                  th:text="'Разрубка: ' + (${order.extraCutting} ? '✔' : '✖')"></span>
+                    <span class="tag" th:classappend="${order.vetCertificate} ? 'tag--true' : 'tag--false'"
+                          th:text="'Вет. справка: ' + (${order.vetCertificate} ? '✔' : '✖')"></span>
+                    <span class="tag" th:classappend="${order.keepRabbitPaw} ? 'tag--true' : 'tag--false'"
+                          th:text="'Лапка: ' + (${order.keepRabbitPaw} ? '✔' : '✖')"></span>
+                    <span class="tag" th:classappend="${order.keepOrgans} ? 'tag--true' : 'tag--false'"
+                          th:text="'Органы: ' + (${order.keepOrgans} ? '✔' : '✖')"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="delete-form">
+            <h3>Удалить заказ</h3>
+            <form th:action="@{/admin/orders/delete}"  method="post">
+                <input type="number" name="id" placeholder="Введите ID заказа" required>
+                <button type="submit" class="btn danger">Удалить</button>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            </form>
+            <div th:if="${notFoundError}" >
+                <h3 style="color: red" th:text="${notFoundError}">Ошибка 404</h3>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <div class="logo">
+                <h1>КРОЛЬЧАНСК</h1>
+                <p>СОЮЗ фермерских хозяйств</p>
+            </div>
+            <div class="footer-contacts">
+                <p>8-921-374-5301</p>
+                <p>info@krolchansk.ru</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © Copyright 2014-2026
+        </div>
+
+        <div>
+            <a href="#" class="social-icon">VK</a>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>

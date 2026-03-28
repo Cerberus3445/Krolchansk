@@ -1,0 +1,180 @@
+/* success.css - стили для страницы успешного заказа */
+
+@font-face {
+    font-family: "Etude Noire";
+    src: url("/fonts/EtudeNoire.woff2") format("woff2"),
+    url("/fonts/EtudeNoire.woff") format("woff");
+    font-weight: 400 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Farabee";
+    src: url("/fonts/Farabee.woff2") format("woff2"),
+    url("/fonts/Farabee.woff") format("woff");
+    font-weight: 400 600;
+    font-display: swap;
+}
+
+:root {
+    --bg-dark: #1a2229;
+    --bg-card: #2a323d;
+    --accent-green: #6b9a44;
+    --accent-green-hover: #5a8539;
+    --text-white: #ffffff;
+    --text-muted: #9ba3ae;
+    --border-radius: 20px;
+    --transition: 0.2s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Farabee", sans-serif;
+    background-color: var(--bg-dark);
+    background-image: url("/images/pattern.svg");
+    background-repeat: repeat;
+    color: var(--text-white);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.success-container {
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+}
+
+.success-card {
+    background: var(--bg-card);
+    border-radius: var(--border-radius);
+    padding: 48px 32px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+}
+
+.success-icon {
+    font-size: 80px;
+    line-height: 1;
+    margin-bottom: 20px;
+    display: inline-block;
+    animation: bounce 0.8s ease;
+}
+
+.success-title {
+    font-family: "Etude Noire", sans-serif;
+    font-size: 36px;
+    color: var(--accent-green);
+    margin-bottom: 16px;
+}
+
+.success-message {
+    font-size: 18px;
+    color: var(--text-white);
+    margin-bottom: 24px;
+    line-height: 1.5;
+}
+
+.order-details {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+.order-details h3 {
+    font-family: "Etude Noire", sans-serif;
+    font-size: 22px;
+    margin-bottom: 16px;
+    color: var(--accent-green);
+}
+
+.detail-row {
+    display: flex;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.detail-label {
+    width: 120px;
+    font-weight: 500;
+    color: var(--text-muted);
+}
+
+.detail-value {
+    flex: 1;
+    color: var(--text-white);
+}
+
+.contact-info {
+    background: rgba(107, 154, 68, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+.contact-info p {
+    margin: 8px 0;
+}
+
+.contact-info a {
+    color: var(--accent-green);
+    text-decoration: none;
+    transition: opacity var(--transition);
+}
+
+.contact-info a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+.btn-home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--accent-green);
+    color: var(--text-white);
+    text-decoration: none;
+    padding: 12px 32px;
+    border-radius: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    transition: background var(--transition), transform var(--transition);
+    gap: 8px;
+}
+
+.btn-home:hover {
+    background-color: var(--accent-green-hover);
+    transform: translateY(-2px);
+}
+
+@keyframes bounce {
+    0% { transform: scale(0.8); opacity: 0; }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@media (max-width: 576px) {
+    .success-card {
+        padding: 32px 20px;
+    }
+    .success-title {
+        font-size: 28px;
+    }
+    .detail-row {
+        flex-direction: column;
+        gap: 4px;
+    }
+    .detail-label {
+        width: auto;
+    }
+}

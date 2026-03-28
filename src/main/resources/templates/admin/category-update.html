@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Редактирование категории - Крольчанск</title>
+    <link rel="stylesheet" th:href="@{/css/create-update.css}" href="../../static/css/create-update.css">
+    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}" href="../../static/images/favicon.ico">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo">
+            <h1>КРОЛЬЧАНСК</h1>
+            <p>СОЮЗ фермерских хозяйств</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/admin/categories">Категории</a></li>
+                <li><a href="/admin/products">Продукты</a></li>
+                <li><a href="/admin/orders">Заказы</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="btn">Заказать звонок</a>
+    </header>
+
+    <main>
+        <div class="tabs">
+            <div class="tab">Управление продуктами</div>
+            <div class="tab active">Управление категориями</div>
+        </div>
+
+        <h2>Редактировать категорию</h2>
+
+        <form th:action="@{/admin/categories/{id}/update(id=${category.id})}" th:object="${category}" method="POST" enctype="multipart/form-data">
+            <!-- Скрытое поле с id категории -->
+            <input type="hidden" th:field="*{id}">
+
+            <div class="form-layout">
+                <div class="inputs-column">
+                    <div class="form-group">
+                        <label for="title">Название категории</label>
+                        <input type="text" id="title" th:field="*{title}" placeholder="Например: Мясо"
+                               th:classappend="${#fields.hasErrors('title')} ? 'input--error' : ''"
+                               th:attr="aria-invalid=${#fields.hasErrors('title')} ? 'true' : 'false'"
+                               th:aria-describedby="${#fields.hasErrors('title')} ? 'error-title' : null">
+                        <span th:id="error-title" class="error-text"
+                              th:if="${#fields.hasErrors('title')}"
+                              th:errors="*{title}"></span>
+                    </div>
+                </div>
+
+                <div class="image-column">
+                    <div class="image-placeholder" id="image-preview"
+                         th:style="'background-image: url(' + @{/api/v1/images/category/{id}(id=${category.id})} + '); background-size: cover; background-position: center;'"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Изображение категории (оставьте пустым, чтобы не менять)</label>
+                <div class="file-upload-wrapper">
+                    <label for="file-upload" class="file-btn">Выбрать новый файл</label>
+                    <input type="file" id="file-upload" name="imageFile" accept="image/*">
+                    <span class="file-name">Файл не выбран</span>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn">Сохранить изменения</button>
+                <a href="/admin/categories" class="btn btn-outline">Отмена</a>
+            </div>
+
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        </form>
+    </main>
+
+    <footer>
+        <div>
+            <div class="logo">
+                <h1>КРОЛЬЧАНСК</h1>
+                <p>СОЮЗ фермерских хозяйств</p>
+            </div>
+            <div class="footer-contacts">
+                <p>8-921-374-5301</p>
+                <p>info@krolchansk.ru</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © Copyright 2014-2026
+        </div>
+
+        <div>
+            <a href="#" class="social-icon">VK</a>
+        </div>
+    </footer>
+</div>
+
+<script>
+    const fileInput = document.getElementById('file-upload');
+    const preview = document.getElementById('image-preview');
+    const fileNameSpan = document.querySelector('.file-name');
+
+    // Функция обновления превью
+    function updatePreview(file) {
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                preview.style.backgroundImage = `url(${e.target.result})`;
+                preview.style.backgroundSize = 'cover';
+                preview.style.backgroundPosition = 'center';
+            };
+            reader.readAsDataURL(file);
+        } else {
+
+        }
+    }
+
+    fileInput.addEventListener('change', function() {
+        const file = this.files[0];
+        const fileName = file ? file.name : 'Файл не выбран';
+        fileNameSpan.textContent = fileName;
+
+        if (file) {
+            updatePreview(file);
+        } else {
+            preview.style.backgroundImage = '';
+        }
+    });
+</script>
+
+</body>
+</html>

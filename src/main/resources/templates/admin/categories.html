@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/admin-common.css}" href="../../static/css/admin-common.css">
+    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}" href="../../static/images/favicon.ico">
+    <title>Созданные категории - Крольчанск</title>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo">
+            <h1>КРОЛЬЧАНСК</h1>
+            <p>СОЮЗ фермерских хозяйств</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/admin/categories">Категории</a></li>
+                <li><a href="/admin/products">Продукты</a></li>
+                <li><a href="/admin/orders">Заказы</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="btn">Главная страница</a>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h2>Созданные категории</h2>
+            <a href="/admin/categories/create-page" class="btn">Добавить категорию</a>
+        </div>
+
+        <div class="category-grid">
+            <a th:each="category : ${categories}" th:href="@{/admin/categories/{id}/update-page(id=${category.id})}" class="category-card">
+                <h3 th:text="${category.id}">Id категории</h3>
+                <h3 th:text="${category.title}">Название категории</h3>
+
+                <img th:if="${category.image != null}"
+                     th:src="@{/api/v1/images/category/{id}(id=${category.id})}"
+                     alt="Изображение категории">
+
+                <img th:unless="${category.image != null}"
+                     src="https://via.placeholder.com/400x300/f0f0f0/2A323D?text=Нет+фото"
+                     alt="Нет фото">
+            </a>
+        </div>
+
+        <div class="delete-form">
+            <h3>Удалить категорию</h3>
+            <form th:action="@{/admin/categories/delete}"  method="post">
+                <input type="number" name="id" placeholder="Введите ID категории" required>
+                <button type="submit" class="btn danger">Удалить</button>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            </form>
+            <div th:if="${notFoundError}" >
+                <h3 style="color: red" th:text="${notFoundError}">Ошибка 404</h3>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div>
+            <div class="logo">
+                <h1>КРОЛЬЧАНСК</h1>
+                <p>СОЮЗ фермерских хозяйств</p>
+            </div>
+            <div class="footer-contacts">
+                <p>8-921-374-5301</p>
+                <p>info@krolchansk.ru</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © Copyright 2014-2026
+        </div>
+
+        <div>
+            <a href="#" class="social-icon">VK</a>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+package ru.krolchansk.common.service;
+
+import java.util.List;
+
+public interface CrudOperations<T, ID> {
+
+    T get(ID id);
+
+    List<T> getAll();
+
+    T create(T dto);
+
+    void update(ID id, T dto);
+
+    void delete(ID id);
+}

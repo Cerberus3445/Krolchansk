@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/admin-common.css}" href="../../static/css/admin-common.css">
+    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}" href="../../static/images/favicon.ico">
+    <title>Панель Админа - Продукты</title>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo">
+            <h1>КРОЛЬЧАНСК</h1>
+            <p>СОЮЗ фермерских хозяйств</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/admin/categories">Категории</a></li>
+                <li><a href="/admin/products">Продукты</a></li>
+                <li><a href="/admin/orders">Заказы</a></li>
+            </ul>
+        </nav>
+        <a href="/" class="btn">Главная страница</a>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h2>Созданные продукты</h2>
+            <a th:href="@{/admin/products/create-page}" class="btn">Добавить продукт</a>
+        </div>
+
+        <div class="category-grid">
+            <a th:each="product : ${products}"
+               th:href="@{/admin/products/{id}/update-page(id=${product.id})}"
+               class="category-card-link">
+                <div class="category-card">
+                    <h3 th:text="'ID: ' + ${product.id}"></h3>
+                    <h3 th:text="${product.title}"></h3>
+
+                    <img th:if="${product.image != null}"
+                         th:src="@{/api/v1/images/product/{id}(id=${product.id})}"
+                         alt="Изображение продукта">
+
+                    <img th:unless="${product.image != null}"
+                         src="https://via.placeholder.com/400x300/f0f0f0/2A323D?text=Нет+фото"
+                         alt="Нет фото">
+
+                    <div class="product-info" style="margin-top: 10px; color: var(--text-muted);">
+                        <span th:text="${product.price} + ' р/' + ${product.unit.title}"></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="delete-form" style="margin-top: 40px;">
+            <h3>Удалить продукт</h3>
+            <form th:action="@{/admin/products/delete}" method="post">
+                <input type="number" name="id" placeholder="Введите ID продукта" required>
+                <button type="submit" class="btn danger" style="background-color: var(--danger);">Удалить</button>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            </form>
+            <div th:if="${notFoundError}" >
+                <h3 style="color: red" th:text="${notFoundError}">Ошибка 404</h3>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div class="logo">
+                <h1>КРОЛЬЧАНСК</h1>
+                <p>СОЮЗ фермерских хозяйств</p>
+            </div>
+            <div class="footer-contacts" style="text-align: right;">
+                <p>8-921-374-5301</p>
+                <p>info@krolchansk.ru</p>
+                <p style="font-size: 12px; color: var(--text-muted);">© 2014-2026</p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+</body>
+</html>

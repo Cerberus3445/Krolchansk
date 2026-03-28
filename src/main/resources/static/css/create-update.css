@@ -1,0 +1,416 @@
+/* Базовые переменные и настройки */
+:root {
+    --bg-main: #1C232B;
+    --bg-panel: #2A323D;
+    --bg-input: #232A32;
+    --accent-green: #79B852;
+    --accent-green-hover: #659C44;
+    --text-main: #FFFFFF;
+    --text-muted: #9BA3AE;
+    --border-color: #3A4452;
+    --border-radius: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    flex: 1;
+}
+
+/* Шапка */
+header {
+    background-color: var(--bg-panel);
+    padding: 15px 30px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.logo h1 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.logo p {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+nav a:hover {
+    color: var(--accent-green);
+}
+
+.btn {
+    background-color: var(--accent-green);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.2s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: var(--accent-green-hover);
+}
+
+/* Табы */
+.tabs {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.tab {
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.tab.active {
+    background-color: var(--accent-green);
+    color: white;
+}
+
+.tab:not(.active) {
+    border-color: var(--border-color);
+    color: var(--text-muted);
+}
+
+/* Основной контент (Форма) */
+h2 {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.form-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    padding: 12px 15px;
+    border-radius: var(--border-radius);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: var(--accent-green);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Блок загрузки изображения (Пунктир) */
+.image-placeholder {
+    border: 1px dashed var(--accent-green);
+    border-radius: var(--border-radius);
+    height: 250px;
+    width: 100%;
+    max-width: 250px;
+}
+
+/* Кастомный input file */
+.file-upload-wrapper {
+    background-color: var(--bg-input);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+.file-upload-wrapper input[type="file"] {
+    display: none;
+}
+
+.file-btn {
+    background-color: var(--accent-green);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 15px;
+}
+
+.file-name {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+/* Кнопки формы */
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+}
+
+.btn-outline:hover {
+    border-color: var(--accent-green);
+    color: var(--text-main);
+}
+
+/* Подвал */
+footer {
+    margin-top: auto;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 30px;
+}
+
+.footer-contacts {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 10px;
+}
+
+.footer-contacts p {
+    margin-bottom: 5px;
+}
+
+.copyright {
+    color: var(--text-muted);
+    font-size: 14px;
+}
+
+.social-icon {
+    background-color: var(--accent-green);
+    color: var(--bg-main);
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* --- АДАПТИВНОСТЬ (Mobile) --- */
+@media (max-width: 900px) {
+    .form-layout {
+        grid-template-columns: 1fr;
+    }
+    .image-placeholder {
+        max-width: 100%;
+        height: 200px;
+        order: -1; /* Изображение будет сверху на мобильных */
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .tabs {
+        flex-direction: column;
+    }
+
+    .tab {
+        text-align: center;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+}
+
+/* ===== Стили для ошибок валидации ===== */
+
+/* Подсветка поля с ошибкой */
+.input--error {
+    border: 2px solid #ff4d4f !important;
+    background-color: rgba(255, 77, 79, 0.08);
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+/* Сообщение об ошибке */
+.error-text {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #ff4d4f;
+    font-size: 13px;
+    font-family: inherit;
+    font-weight: 400;
+    margin-top: 6px;
+    padding-left: 4px;
+    animation: fadeInError 0.3s ease-in-out;
+}
+
+.error-text::before {
+    content: "⚠️";
+    font-size: 13px;
+    line-height: 1;
+}
+
+/* Анимация появления */
+@keyframes fadeInError {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Общее сообщение об ошибках в форме */
+.form-error-summary {
+    background-color: rgba(255, 77, 79, 0.1);
+    border-left: 4px solid #ff4d4f;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+    color: #ff4d4f;
+    font-size: 14px;
+    font-family: inherit;
+    animation: fadeInError 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-error-summary::before {
+    content: "⚠️";
+    font-size: 16px;
+}
+
+/* Подсветка блока загрузки файла при ошибке */
+.upload-wrapper--error {
+    border-color: #ff4d4f;
+    background-color: rgba(255, 77, 79, 0.05);
+    box-shadow: 0 0 0 1px #ff4d4f;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 768px) {
+    .error-text {
+        font-size: 12px;
+        margin-top: 4px;
+    }
+    .error-text::before {
+        font-size: 12px;
+    }
+    .form-error-summary {
+        font-size: 13px;
+        padding: 10px 12px;
+    }
+    .form-error-summary::before {
+        font-size: 14px;
+    }
+}
+
+.category-card-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.category-card-link:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.category-card {
+    background: var(--bg-panel);
+    border-radius: 8px;
+    padding: 16px;
+    transition: background 0.2s;
+}
+.category-card-link:hover .category-card {
+    background: #3a4552;
+}

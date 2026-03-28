@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавление категории - Крольчанск</title>
+    <link rel="stylesheet" th:href="@{/css/create-update.css}" href="../../static/css/create-update.css">
+    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}" href="../../static/images/favicon.ico">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <div class="logo">
+            <h1>КРОЛЬЧАНСК</h1>
+            <p>СОЮЗ фермерских хозяйств</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/admin/categories">Категории</a></li>
+                <li><a href="/admin/products">Продукты</a></li>
+                <li><a href="/admin/orders">Заказы</a></li>
+            </ul>
+        </nav>
+        <a href="/" class="btn">Главная страница</a>
+    </header>
+
+    <main>
+        <div class="tabs">
+            <div class="tab">Управление продуктами</div>
+            <div class="tab active">Управление категориями</div>
+        </div>
+
+        <h2>Добавить категорию</h2>
+
+        <form th:action="@{/admin/categories/create}" th:object="${category}" method="POST" enctype="multipart/form-data">
+            <div class="form-layout">
+                <div class="inputs-column">
+                    <div class="form-group">
+                        <label for="title">Название категории</label>
+                        <input type="text" id="title" th:field="*{title}"
+                               placeholder="Например: Мясо"
+                               th:classappend="${#fields.hasErrors('title')} ? 'input--error' : ''"
+                               th:attr="aria-invalid=${#fields.hasErrors('title')} ? 'true' : 'false'"
+                               th:aria-describedby="${#fields.hasErrors('title')} ? 'error-title' : null">
+                        <span th:id="error-title" class="error-text"
+                              th:if="${#fields.hasErrors('title')}"
+                              th:errors="*{title}"></span>
+                    </div>
+                </div>
+
+                <div class="image-column">
+                    <div class="image-placeholder" id="image-preview"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Изображение категории</label>
+                <div class="file-upload-wrapper">
+                    <label for="file-upload" class="file-btn">Выбрать файл</label>
+                    <input type="file" id="file-upload" name="imageFile" accept="image/*" style="display: none;">
+                    <span class="file-name">Файл не выбран</span>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn">Добавить категорию</button>
+            </div>
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+        </form>
+    </main>
+
+    <footer>
+        <div>
+            <div class="logo">
+                <h1>КРОЛЬЧАНСК</h1>
+                <p>СОЮЗ фермерских хозяйств</p>
+            </div>
+            <div class="footer-contacts">
+                <p>8-921-374-5301</p>
+                <p>info@krolchansk.ru</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            © Copyright 2014-2026
+        </div>
+
+        <div>
+            <a href="#" class="social-icon">VK</a>
+        </div>
+    </footer>
+</div>
+
+<script>
+    document.getElementById('file-upload').addEventListener('change', function(event) {
+        const file = event.target.files[0];
+        const fileName = file ? file.name : 'Файл не выбран';
+        document.querySelector('.file-name').textContent = fileName;
+
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.getElementById('image-preview');
+                preview.style.backgroundImage = `url(${e.target.result})`;
+                preview.style.backgroundSize = 'cover';
+                preview.style.backgroundPosition = 'center';
+            }
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+
+</body>
+</html>

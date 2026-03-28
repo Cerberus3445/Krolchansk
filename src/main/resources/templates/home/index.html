@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Крольчанск — Мясо кролика с доставкой по Санкт-Петербургу</title>
+    <link rel="stylesheet" th:href="@{/css/index.css}" href="../../static/css/index.css">
+    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}" href="../../static/images/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+
+<body>
+<header class="hero-section">
+    <div class="hero-section__inner">
+        <div class="hero">
+            <div class="hero__bg-image" role="img" aria-hidden="true"></div>
+            <div class="hero__overlay"></div>
+            <div class="header-bar">
+                <div class="header-bar__inner">
+                    <a href="/" class="logo">
+                        <span class="logo__main">КРОЛЬЧАНСК</span>
+                        <span class="logo__sub">СОЮЗ фермерских хозяйств</span>
+                    </a>
+                    <nav class="nav" id="main-nav" aria-label="Навигация" role="navigation">
+                        <button class="nav__close" type="button" aria-label="Закрыть меню">
+                            <span></span><span></span>
+                        </button>
+                        <a href="#about" class="nav__link">О нас</a>
+                        <a href="#prices" class="nav__link">Цены</a>
+                        <a href="#delivery" class="nav__link">Доставка</a>
+                        <a href="#order" class="nav__link">Заказать</a>
+                        <a href="#contacts" class="nav__link">Контакты</a>
+                        <a href="#order" class="nav__cta">Заказать звонок</a>
+                    </nav>
+                    <div class="nav__backdrop" aria-hidden="true"></div>
+                    <button type="button" class="btn btn--callback" aria-label="Заказать звонок">Заказать звонок</button>
+                    <button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+            </div>
+            <div class="hero__content">
+                <h1 class="hero__title">Мясо кролика с доставкой<br>по Санкт-Петербургу</h1>
+                <p class="hero__subtitle">Союз фермерских хозяйств «КРОЛЬЧАНСК» здесь можно купить кролика напрямую с фермы и
+                    другие фермерские продукты с бесплатной доставкой на дом по СПб</p>
+                <a href="#order" class="btn btn--callback hero__btn-mobile">Заказать звонок</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="section section--features">
+    <div class="section__bg-gradient"></div>
+    <div class="container section__content">
+        <div class="features-grid features-grid--row1">
+            <article class="feature-card feature-card--1">
+                <div class="feature-card__bg"></div>
+                <div class="feature-card__content">
+                    <div class="feature-card__head">
+                        <span class="feature-card__num">01</span>
+                        <span class="feature-card__tag">Чистая порода</span>
+                    </div>
+                    <p class="feature-card__text">Белый великан, серебристый, калифорниец, советская шиншила позволяют вырастить
+                        здорового и вкусного кролика.</p>
+                </div>
+            </article>
+            <article class="feature-card feature-card--2">
+                <div class="feature-card__bg"></div>
+                <div class="feature-card__content">
+                    <div class="feature-card__head">
+                        <span class="feature-card__num">02</span>
+                        <span class="feature-card__tag">Парное мясо</span>
+                    </div>
+                    <p class="feature-card__text">КРОЛЬЧАНСК доставляем на дом экологически чистое парное мясо молодого кролика
+                        (3–4 месячного возраста) в СПб</p>
+                </div>
+            </article>
+            <article class="feature-card feature-card--3">
+                <div class="feature-card__bg"></div>
+                <div class="feature-card__content">
+                    <div class="feature-card__head">
+                        <span class="feature-card__num">03</span>
+                        <span class="feature-card__tag">Гипоаллергенное</span>
+                    </div>
+                    <p class="feature-card__text">Экологически чистое мясо кролика прямо с фермы — идеальный вариант питания для
+                        детей с аллергией и кормящих мам</p>
+                </div>
+            </article>
+        </div>
+        <div class="features-grid features-grid--row2">
+            <article class="feature-card feature-card--4 feature-card--wide">
+                <div class="feature-card__bg"></div>
+                <div class="feature-card__content">
+                    <div class="feature-card__head">
+                        <span class="feature-card__num">04</span>
+                        <span class="feature-card__tag feature-card__tag--gray">Мини-фермы</span>
+                    </div>
+                    <p class="feature-card__text">Клетки располагаются на открытом воздухе, это НЕ «сарайное размещение», где
+                        кролики могут контактировать с грызунами</p>
+                </div>
+            </article>
+            <article class="feature-card feature-card--5 feature-card--wide">
+                <div class="feature-card__bg"></div>
+                <div class="feature-card__content">
+                    <div class="feature-card__head">
+                        <span class="feature-card__num">05</span>
+                        <span class="feature-card__tag feature-card__tag--gray">Конструкция</span>
+                    </div>
+                    <p class="feature-card__text">Конструкция клеток предусматривает автоматическое удаление продуктов
+                        жизнедеятельности и обеспечивает дыхание чистым воздухом, а НЕ парами своих экскриментов. Иммунитет БЕЗ
+                        антибиотиков</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="about" class="section section--about">
+    <div class="section__about-pattern" aria-hidden="true"></div>
+    <div class="container section--about__inner">
+        <h2 class="section__title section__title--light section--about__title">О нас</h2>
+        <div class="about-grid">
+            <div class="about-card about-card--large">
+                <h3 class="about-card__title">Фермерские<br>продукты СПб</h3>
+                <div class="about-card__line"></div>
+                <p class="about-card__text">«КРОЛЬЧАНСК» предлагает фермерские продукты СПб: мясо кролика, кур, перепелов,
+                    индейку, гусей, уток, козье молоко, сливочное масло, сыр, творог, сметану. Осуществляем доставку по СПб и
+                    пригородам. Возможна оплата безналом</p>
+            </div>
+            <div class="about-col">
+                <div class="about-card about-card--mid">
+                    <h3 class="about-card__title">Экологически чистое мясо кролика</h3>
+                    <div class="about-card__line"></div>
+                    <p class="about-card__text">Предлагаем экологически чистое мясо кролика до 4-х месячного возраста, не
+                        усваивающее радионуклиды и пестициды. Оно идеально подходит для питания детей и кормящих мам,</p>
+                </div>
+                <div class="about-card about-card--mid">
+                    <h3 class="about-card__title">Экскурсии и консультации</h3>
+                    <div class="about-card__line"></div>
+                    <p class="about-card__text">Предлагаются экскурсии по ферме («КРОЛЬЧАНСК»), стоимость 1500 рублей.
+                        Консультации специалистов доступны для посетителей</p>
+                </div>
+            </div>
+            <div class="about-card about-card--tall">
+                <h3 class="about-card__title">Продукция кролиководства</h3>
+                <div class="about-card__line"></div>
+                <p class="about-card__text">«КРОЛЬЧАНСК» занимается профессиональным кролиководством по запатентованной
+                    системе Михайлова. Предлагаем мясо кролика (парное, охлаждённое), филе, фарш, субпродукты, а также
+                    фермерских кур, перепелов, индейку, гусей, уток. Осуществляем продажу мясных пород кроликов для разведения.
+                    Возможна халяльная обработка</p>
+            </div>
+            <div class="about-col">
+                <div class="about-card about-card--h305">
+                    <h3 class="about-card__title">Клетки для кроликов</h3>
+                    <div class="about-card__line"></div>
+                    <p class="about-card__text">Занимаемся изготовлением клеток для кроликов. Делаем михайловские
+                        клетки-минифермы ~28000р и простые клетки для кроликов от 12000р.</p>
+                </div>
+                <div class="about-card about-card--h432 about-card--text-bright">
+                    <h3 class="about-card__title">Поставки и продажи</h3>
+                    <div class="about-card__line"></div>
+                    <p class="about-card__text">Четыре раза в неделю возим мясо кролика и фермерские продукты в СПб
+                        (Санкт-Петербург), доставляем до квартиры. Регулярно возим в Колпино, Стрельну, Ломоносов, Петергоф,
+                        Кронштадт, Пушкин, Павловск, Кудрово, Всеволжск, Янино. Осуществляем поставки в рестораны, магазины</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="advantages" class="section section--advantages">
+    <div class="section__bg-gradient section--advantages__bg"></div>
+    <div class="container section--advantages__inner">
+        <h2 class="section__title section__title--light section--advantages__title">Наши преимущества</h2>
+        <div class="advantages-list">
+            <article class="advantage-card advantage-card--open">
+                <div class="advantage-card__head" role="button" tabindex="0" aria-expanded="true" aria-controls="adv-text-1"
+                     data-advantage-toggle>
+                    <div class="advantage-card__circle" aria-hidden="true"><span class="advantage-card__circle-inner"></span>
+                    </div>
+                    <h3 class="advantage-card__title">Работаем по запатентованной методике профессора И.Н.МИХАЙЛОВА (Мы
+                        держатели лицензии)</h3>
+                    <span class="advantage-card__arrow" aria-hidden="true"></span>
+                </div>
+                <div class="advantage-card__body" id="adv-text-1">
+                    <p class="advantage-card__text">эффективность технологии доказана и защищена патентом, акселерационная
+                        методика И.Н.Михайлова позволяет кроликам достигать убойного веса в 3-4 месяца БЕЗ ПРИМЕНЕНИЯ гормонов
+                        роста и АНТИБИОТИКОВ;</p>
+                </div>
+            </article>
+            <article class="advantage-card">
+                <div class="advantage-card__head" role="button" tabindex="0" aria-expanded="false" aria-controls="adv-text-2"
+                     data-advantage-toggle>
+                    <div class="advantage-card__circle" aria-hidden="true"><span class="advantage-card__circle-inner"></span>
+                    </div>
+                    <h3 class="advantage-card__title">Наличие ветконтроля и вакцинации</h3>
+                    <span class="advantage-card__arrow" aria-hidden="true"></span>
+                </div>
+                <div class="advantage-card__body" id="adv-text-2">
+                    <p class="advantage-card__text">ветврач следит за здоровьем поголовья и производит отбор кроликов пригодных
+                        к забою;</p>
+                </div>
+            </article>
+            <article class="advantage-card">
+                <div class="advantage-card__head" role="button" tabindex="0" aria-expanded="false" aria-controls="adv-text-3"
+                     data-advantage-toggle>
+                    <div class="advantage-card__circle" aria-hidden="true"><span class="advantage-card__circle-inner"></span>
+                    </div>
+                    <h3 class="advantage-card__title">Исключительные вкусовые качества</h3>
+                    <span class="advantage-card__arrow" aria-hidden="true"></span>
+                </div>
+                <div class="advantage-card__body" id="adv-text-3">
+                    <p class="advantage-card__text">парное мясо наших кроликов можно не вымачивать! оно не имеет запаха! Это
+                        обеспечиваются а) чистотой породы кролика, б) качественными кормами, в) содержанием кроликов в чистоте и
+                        на свежем воздухе;</p>
+                </div>
+            </article>
+            <article class="advantage-card">
+                <div class="advantage-card__head" role="button" tabindex="0" aria-expanded="false" aria-controls="adv-text-4"
+                     data-advantage-toggle>
+                    <div class="advantage-card__circle" aria-hidden="true"><span class="advantage-card__circle-inner"></span>
+                    </div>
+                    <h3 class="advantage-card__title">Доставка на дом парной крольчатины</h3>
+                    <span class="advantage-card__arrow" aria-hidden="true"></span>
+                </div>
+                <div class="advantage-card__body" id="adv-text-4">
+                    <p class="advantage-card__text">доставка в день забоя мяса кролика, филе кролика, тушек перепелов, утки,
+                        гуся;</p>
+                </div>
+            </article>
+            <article class="advantage-card">
+                <div class="advantage-card__head" role="button" tabindex="0" aria-expanded="false" aria-controls="adv-text-5"
+                     data-advantage-toggle>
+                    <div class="advantage-card__circle" aria-hidden="true"><span class="advantage-card__circle-inner"></span>
+                    </div>
+                    <h3 class="advantage-card__title">Мы профессионалы в кролиководстве</h3>
+                    <span class="advantage-card__arrow" aria-hidden="true"></span>
+                </div>
+                <div class="advantage-card__body" id="adv-text-5">
+                    <p class="advantage-card__text">занимаемся разведением кроликов более 12 лет</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section id="prices" class="section section--prices">
+    <div class="container">
+        <h2 class="section__title section__title--dark">Цены</h2>
+        <div class="prices-tabs">
+            <button th:each="cat : ${categories}"
+                    type="button"
+                    class="prices-tab"
+                    th:classappend="|prices-tab--${cat.id == activeCategoryId ? 'active' : ''} prices-tab--${cat.title.toLowerCase() == 'мясо' ? 'meat' : (cat.title.toLowerCase() == 'мясо птицы' ? 'poultry' : 'dairy')}|"
+                    th:onclick="|window.location.href='/?categoryId=' + ${cat.id} + '#prices'|"
+                    th:style="${cat.image != null} ? 'background-image: url(' + @{/api/v1/images/category/{id}(id=${cat.id})} + ')' : ''">
+                <span class="prices-tab__label" th:text="${cat.title}">Мясо</span>
+            </button>
+        </div>
+        <div class="prices-panels">
+            <div class="prices-panel prices-panel--active">
+                <ul class="price-list">
+                    <li th:each="product : ${products}" class="price-list__item">
+                <span class="price-list__thumb"
+                      th:style="'background-image: url(' + @{/api/v1/images/product/{id}(id=${product.id})} + ')'"
+                      role="img"
+                      th:aria-label="${product.title}"></span>
+                        <div class="price-list__content">
+                            <span class="price-list__name" th:text="${product.title}">Название товара</span>
+                            <span class="price-list__value" th:text="${product.price} + ' р/' + ${product.unit}">650 р/кг</span>
+                        </div>
+                    </li>
+                </ul>
+                <p class="prices-note" th:if="${#lists.isEmpty(products)}">В данной категории товаров пока нет.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="delivery" class="section section--delivery">
+    <div class="delivery__wrap">
+        <div class="delivery__hero">
+            <div class="delivery__bg"
+                 th:style="'background-image: url(' + @{/images/Subtract.png} + ')'"
+                 role="img" aria-hidden="true"></div>
+
+            <div class="delivery__bg delivery__bg--mobile"
+                 th:style="'background-image: url(' + @{/images/delivery-photo.png} + ')'"
+                 role="img" aria-hidden="true"></div>
+            <h2 class="delivery__title">Доставка фермерских продуктов в СПб</h2>
+            <a href="tel:+79213745301" class="delivery__phone">8-921-374-5301</a>
+        </div>
+        <div class="delivery__body">
+            <div class="delivery-text">
+                <p>1 раз в неделю доставляем тушки кроликов, печень кролика, филе кролика, кур, яйца перепела, фермерских
+                    продуктов в СПб</p>
+                <p>Есть СРОЧНАЯ ДОСТАВКА крольчатины, перепелов и др. в СПб. Возможен заказ кролика халяль, по договорённости.
+                    Бесплатно по СПб при заказе БОЛЬШЕ 1 тушки кролика!</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="order" class="section section--order">
+    <div class="container">
+        <div class="order-form-wrap">
+            <h2 class="order-form__title">Закажите мясо кролика с домашней фермы</h2>
+            <form class="order-form" th:action="@{/order}" th:object="${order}" method="post">
+                <div class="order-form__fields">
+                    <label class="order-form__field">
+                        <input type="text" th:field="*{contactName}" placeholder="Ваше имя"
+                               th:classappend="${#fields.hasErrors('contactName')} ? 'input--error' : ''">
+                        <span class="error-text" th:if="${#fields.hasErrors('contactName')}" th:errors="*{contactName}"></span>
+                    </label>
+
+                    <label class="order-form__field">
+                        <input type="tel" th:field="*{contactPhone}" placeholder="Номер телефона"
+                               th:classappend="${#fields.hasErrors('contactPhone')} ? 'input--error' : ''">
+                        <span class="error-text" th:if="${#fields.hasErrors('contactPhone')}" th:errors="*{contactPhone}"></span>
+                    </label>
+
+                    <label class="order-form__field">
+                        <input type="text" th:field="*{deliveryAddress}" placeholder="Адрес доставки в СПБ"
+                               th:classappend="${#fields.hasErrors('deliveryAddress')} ? 'input--error' : ''">
+                        <span class="error-text" th:if="${#fields.hasErrors('deliveryAddress')}" th:errors="*{deliveryAddress}"></span>
+                    </label>
+
+                    <label class="order-form__field">
+                        <input type="text" th:field="*{orderDetails}" placeholder="Ваш заказ: число тушек и т.д."
+                               th:classappend="${#fields.hasErrors('orderDetails')} ? 'input--error' : ''">
+                        <span class="error-text" th:if="${#fields.hasErrors('orderDetails')}" th:errors="*{orderDetails}"></span>
+                    </label>
+                </div>
+
+                <div class="order-form__options">
+                    <div class="order-form__options-row">
+                        <div class="order-form__options-col">
+                            <label class="order-form__checkbox">
+                                <input type="checkbox" th:field="*{extraCutting}"> доп.разрубка (120р/тушка)
+                            </label>
+                            <label class="order-form__checkbox">
+                                <input type="checkbox" th:field="*{vetCertificate}"> вет.свидетельство (650руб)
+                            </label>
+                        </div>
+                        <div class="order-form__options-col">
+                            <label class="order-form__checkbox">
+                                <input type="checkbox" th:field="*{keepRabbitPaw}"> оставить лапку кролика
+                            </label>
+                            <label class="order-form__checkbox">
+                                <input type="checkbox" th:field="*{keepOrgans}"> оставить печень, почки
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn--submit">Заказать</button>
+                </div>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            </form>
+        </div>
+    </div>
+</section>
+<footer id="contacts" class="footer">
+    <div class="footer__inner">
+        <div class="footer__col footer__col--left">
+            <div class="footer__logo-row">
+                <a href="/" class="footer__logo">
+                    <span class="footer__logo-main">КРОЛЬЧАНСК</span>
+                    <span class="footer__logo-sub">СОЮЗ фермерских хозяйств</span>
+                </a>
+                <a href="https://vk.com/krolchansk" class="footer__vk footer__vk--mobile" aria-label="ВКонтакте">
+                    <img th:src="@{/images/footer-vk.svg}" width="50" height="50" alt="">
+                </a>
+            </div>
+            <div class="footer__contacts">
+                <p class="footer__contact-row">
+                    <span class="footer__contact-label">Телефон: </span>
+                    <a href="tel:+79213745301">8-921-374-53-01</a>
+                </p>
+                <p class="footer__contact-row">
+                    <span class="footer__contact-label">Email: </span>
+                    <a href="mailto:info@krolchansk.ru">info@krolchansk.ru</a>
+                </p>
+                <p class="footer__contact-city">г. Санкт-Петербург</p>
+            </div>
+        </div>
+        <div class="footer__col footer__col--center">
+            <div class="footer__divider" aria-hidden="true"></div>
+            <p class="footer__copy">© Copyright 2014-2026</p>
+        </div>
+    </div>
+</footer>
+
+<script th:src="@{/js/script.js}" src="../static/js/script.js"></script>
+</body>
+
+</html>

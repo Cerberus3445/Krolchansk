@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ошибка сервера - Крольчанск</title>
+    <link rel="stylesheet" th:href="@{/css/error.css}" href="../../static/css/error.css">
+    <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}" href="../../static/images/favicon.ico">
+</head>
+<body>
+<div class="error-container">
+    <div class="error-card">
+        <div class="error-icon">⚠️</div>
+        <div class="error-code">500</div>
+        <h1 class="error-title">Внутренняя ошибка сервера</h1>
+        <p class="error-message">
+            На сервере произошла непредвиденная ошибка. Мы уже работаем над её устранением.<br>
+            Попробуйте обновить страницу позже.
+        </p>
+        <a href="/" class="btn-home">
+            <span>🏠</span> На главную
+        </a>
+        <div class="support-link">
+            <a href="mailto:info@krolchansk.ru" class="support-link">Сообщить об ошибке</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
