@@ -20,7 +20,7 @@ public class ProdSecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) {
         http.authorizeHttpRequests(request ->
                 request.requestMatchers("/", "/css/**", "/images/**",
-                                "/js/**", "/order", "/order-created", "/actuator/health")
+                                "/js/**", "/order", "/order-created", "/actuator/health", "/api/v1/images/**")
                         .permitAll()
                         .anyRequest()
                         .authenticated())
