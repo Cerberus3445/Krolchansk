@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ru.krolchansk.common.exception.NotFoundException;
 
+
 @ControllerAdvice
 @RequiredArgsConstructor
 public class AdviceController {
@@ -20,7 +21,7 @@ public class AdviceController {
                                  HttpServletRequest request,
                                  RedirectAttributes redirectAttributes) {
 
-        String message = messageSource.getMessage(
+        String message = this.messageSource.getMessage(
                 e.getMessageKey(),
                 e.getArgs(),
                 LocaleContextHolder.getLocale()
@@ -31,6 +32,6 @@ public class AdviceController {
         // Берем URL предыдущей страницы из заголовков
         String referer = request.getHeader("Referer");
 
-        return "redirect:" + (referer != null ? referer : "/admin");
+        return "redirect:" + (referer != null ? referer : "/");
     }
 }

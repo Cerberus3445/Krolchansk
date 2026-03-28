@@ -97,13 +97,15 @@
             </div>
 
             <div class="form-group">
-                <label>Изображение продукта</label>
+                <div th:if="${maxFileSizeError}" >
+                    <h3 style="color: red" th:text="${maxFileSizeError}">Размер файла превышает лимит</h3>
+                </div>
+                <label>Изображение продукта(размер изображения не должен превышать 5 мб в формате JPEG, PNG или WEBP)</label>
                 <div class="file-upload-wrapper">
                     <label for="file-upload" class="file-btn">Выбрать файл</label>
                     <input type="file" id="file-upload" name="imageFile" accept="image/*">
                     <span class="file-name">Файл не выбран</span>
                 </div>
-                <!-- Убрали вывод ошибок для imageFile -->
             </div>
 
             <div class="form-actions">
@@ -136,28 +138,6 @@
         </div>
     </footer>
 </div>
-
-<script>
-    document.getElementById('file-upload').addEventListener('change', function() {
-        const fileName = this.files[0] ? this.files[0].name : 'Файл не выбран';
-        document.querySelector('.file-name').textContent = fileName;
-
-        // Предпросмотр изображения
-        if (this.files && this.files[0]) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const preview = document.getElementById('image-preview');
-                preview.style.backgroundImage = `url(${e.target.result})`;
-                preview.style.backgroundSize = 'cover';
-                preview.style.backgroundPosition = 'center';
-            };
-            reader.readAsDataURL(this.files[0]);
-        } else {
-            const preview = document.getElementById('image-preview');
-            preview.style.backgroundImage = '';
-        }
-    });
-</script>
-
+<script th:src="@{/js/image-validator.js}" src="../../static/js/image-validator.js"></script>
 </body>
 </html>

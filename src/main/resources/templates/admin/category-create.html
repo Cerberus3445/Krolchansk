@@ -55,7 +55,7 @@
             </div>
 
             <div class="form-group">
-                <label>Изображение категории</label>
+                <label>Изображение категории(размер изображения не должен превышать 5 мб в формате JPEG, PNG или WEBP)</label>
                 <div class="file-upload-wrapper">
                     <label for="file-upload" class="file-btn">Выбрать файл</label>
                     <input type="file" id="file-upload" name="imageFile" accept="image/*" style="display: none;">
@@ -91,25 +91,6 @@
         </div>
     </footer>
 </div>
-
-<script>
-    document.getElementById('file-upload').addEventListener('change', function(event) {
-        const file = event.target.files[0];
-        const fileName = file ? file.name : 'Файл не выбран';
-        document.querySelector('.file-name').textContent = fileName;
-
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                const preview = document.getElementById('image-preview');
-                preview.style.backgroundImage = `url(${e.target.result})`;
-                preview.style.backgroundSize = 'cover';
-                preview.style.backgroundPosition = 'center';
-            }
-            reader.readAsDataURL(file);
-        }
-    });
-</script>
-
+<script th:src="@{/js/image-validator.js}" src="../../static/js/image-validator.js"></script>
 </body>
 </html>
