@@ -256,120 +256,30 @@
     </div>
 </section>
 
-<section id="prices" class="section section--prices">
+<section class="section section--cta">
     <div class="container">
-        <h2 class="section__title section__title--dark">Цены</h2>
-        <div class="prices-tabs">
-            <button th:each="cat : ${categories}"
-                    type="button"
-                    class="prices-tab"
-                    th:classappend="|prices-tab--${cat.id == activeCategoryId ? 'active' : ''} prices-tab--${cat.title.toLowerCase() == 'мясо' ? 'meat' : (cat.title.toLowerCase() == 'мясо птицы' ? 'poultry' : 'dairy')}|"
-                    th:onclick="|window.location.href='/?categoryId=' + ${cat.id} + '#prices'|"
-                    th:style="${cat.image != null} ? 'background-image: url(' + @{/api/v1/images/category/{id}(id=${cat.id})} + ')' : ''">
-                <span class="prices-tab__label" th:text="${cat.title}">Мясо</span>
-            </button>
-        </div>
-        <div class="prices-panels">
-            <div class="prices-panel prices-panel--active">
-                <ul class="price-list">
-                    <li th:each="product : ${products}" class="price-list__item">
-                <span class="price-list__thumb"
-                      th:style="'background-image: url(' + @{/api/v1/images/product/{id}(id=${product.id})} + ')'"
-                      role="img"
-                      th:aria-label="${product.title}"></span>
-                        <div class="price-list__content">
-                            <span class="price-list__name" th:text="${product.title}">Название товара</span>
-                            <span class="price-list__value" th:text="${product.price} + ' р/' + ${product.unit}">650 р/кг</span>
-                        </div>
-                    </li>
-                </ul>
-                <p class="prices-note" th:if="${#lists.isEmpty(products)}">В данной категории товаров пока нет.</p>
+        <div class="cta-block">
+            <div class="cta-icon">🥩</div>
+            <h2 class="cta-title">Попробуйте настоящее фермерское мясо кролика</h2>
+            <p class="cta-text">
+                Свежее, экологически чистое, выращенное с любовью на наших фермах.<br>
+                Доставка по Санкт-Петербургу в день забоя.
+            </p>
+            <div class="cta-buttons">
+                <a href="/catalog/categories" class="btn btn--primary">
+                    <span>Выбрать категорию</span>
+                    <span class="btn-arrow">→</span>
+                </a>
+                <a href="/catalog/products" class="btn btn--outline">Посмотреть все товары</a>
+            </div>
+            <div class="cta-features">
+                <span class="cta-feature">✔️ Бесплатная доставка от 1 тушки</span>
+                <span class="cta-feature">✔️ Ветконтроль</span>
             </div>
         </div>
     </div>
 </section>
 
-<section id="delivery" class="section section--delivery">
-    <div class="delivery__wrap">
-        <div class="delivery__hero">
-            <div class="delivery__bg"
-                 th:style="'background-image: url(' + @{/images/Subtract.png} + ')'"
-                 role="img" aria-hidden="true"></div>
-
-            <div class="delivery__bg delivery__bg--mobile"
-                 th:style="'background-image: url(' + @{/images/delivery-photo.png} + ')'"
-                 role="img" aria-hidden="true"></div>
-            <h2 class="delivery__title">Доставка фермерских продуктов в СПб</h2>
-            <a href="tel:+79213745301" class="delivery__phone">8-921-374-5301</a>
-        </div>
-        <div class="delivery__body">
-            <div class="delivery-text">
-                <p>1 раз в неделю доставляем тушки кроликов, печень кролика, филе кролика, кур, яйца перепела, фермерских
-                    продуктов в СПб</p>
-                <p>Есть СРОЧНАЯ ДОСТАВКА крольчатины, перепелов и др. в СПб. Возможен заказ кролика халяль, по договорённости.
-                    Бесплатно по СПб при заказе БОЛЬШЕ 1 тушки кролика!</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="order" class="section section--order">
-    <div class="container">
-        <div class="order-form-wrap">
-            <h2 class="order-form__title">Закажите мясо кролика с домашней фермы</h2>
-            <form class="order-form" th:action="@{/order}" th:object="${order}" method="post">
-                <div class="order-form__fields">
-                    <label class="order-form__field">
-                        <input type="text" th:field="*{contactName}" placeholder="Ваше имя"
-                               th:classappend="${#fields.hasErrors('contactName')} ? 'input--error' : ''">
-                        <span class="error-text" th:if="${#fields.hasErrors('contactName')}" th:errors="*{contactName}"></span>
-                    </label>
-
-                    <label class="order-form__field">
-                        <input type="tel" th:field="*{contactPhone}" placeholder="Номер телефона"
-                               th:classappend="${#fields.hasErrors('contactPhone')} ? 'input--error' : ''">
-                        <span class="error-text" th:if="${#fields.hasErrors('contactPhone')}" th:errors="*{contactPhone}"></span>
-                    </label>
-
-                    <label class="order-form__field">
-                        <input type="text" th:field="*{deliveryAddress}" placeholder="Адрес доставки в СПБ"
-                               th:classappend="${#fields.hasErrors('deliveryAddress')} ? 'input--error' : ''">
-                        <span class="error-text" th:if="${#fields.hasErrors('deliveryAddress')}" th:errors="*{deliveryAddress}"></span>
-                    </label>
-
-                    <label class="order-form__field">
-                        <input type="text" th:field="*{orderDetails}" placeholder="Ваш заказ: число тушек и т.д."
-                               th:classappend="${#fields.hasErrors('orderDetails')} ? 'input--error' : ''">
-                        <span class="error-text" th:if="${#fields.hasErrors('orderDetails')}" th:errors="*{orderDetails}"></span>
-                    </label>
-                </div>
-
-                <div class="order-form__options">
-                    <div class="order-form__options-row">
-                        <div class="order-form__options-col">
-                            <label class="order-form__checkbox">
-                                <input type="checkbox" th:field="*{extraCutting}"> доп.разрубка (120р/тушка)
-                            </label>
-                            <label class="order-form__checkbox">
-                                <input type="checkbox" th:field="*{vetCertificate}"> вет.свидетельство (650руб)
-                            </label>
-                        </div>
-                        <div class="order-form__options-col">
-                            <label class="order-form__checkbox">
-                                <input type="checkbox" th:field="*{keepRabbitPaw}"> оставить лапку кролика
-                            </label>
-                            <label class="order-form__checkbox">
-                                <input type="checkbox" th:field="*{keepOrgans}"> оставить печень, почки
-                            </label>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn--submit">Заказать</button>
-                </div>
-                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
-            </form>
-        </div>
-    </div>
-</section>
 <footer id="contacts" class="footer">
     <div class="footer__inner">
         <div class="footer__col footer__col--left">
@@ -403,15 +313,14 @@
 
 <script th:src="@{/js/script.js}" src="../../static/js/script.js"></script>
 <script>
-    setTimeout(function() {
+    window.addEventListener('load', function() {
         const preloader = document.getElementById('preloader');
-        if (preloader) {
-            preloader.style.opacity = '0';
-            setTimeout(function() {
-                preloader.style.display = 'none';
-            }, 300);
-        }
-    }, 3500);
+        preloader.classList.add('preloader-hiding');
+
+        setTimeout(() => {
+            preloader.style.display = 'none';
+        }, 500);
+    });
 </script>
 </body>
 

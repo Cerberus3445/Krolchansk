@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Категории — Крольчанск</title>
+  <link rel="stylesheet" th:href="@{/css/index.css}" href="../../static/css/index.css">
+  <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}" href="../../static/images/favicon.ico">
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <div class="site-header__inner">
+      <a href="/static" class="logo">
+        <span class="logo__main">КРОЛЬЧАНСК</span>
+        <span class="logo__sub">СОЮЗ фермерских хозяйств</span>
+      </a>
+      <nav class="nav" id="main-nav" aria-label="Навигация">
+        <button class="nav__close" type="button" aria-label="Закрыть меню">
+          <span></span><span></span>
+        </button>
+        <a href="/static" class="nav__link">Главная</a>
+        <a href="/categories" class="nav__link active">Категории</a>
+        <a href="/products" class="nav__link">Продукты</a>
+        <a href="/order" class="nav__link">Заказать</a>
+        <a href="#contacts" class="nav__link">Контакты</a>
+        <a href="/order" class="nav__cta">Заказать звонок</a>
+      </nav>
+      <div class="nav__backdrop" aria-hidden="true"></div>
+      <button class="header__burger" type="button" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="/order" class="btn btn--callback">Заказать звонок</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="container">
+    <h1 class="page-title">Категории продукции</h1>
+    <div class="categories-grid">
+      <a th:each="cat : ${categories}" th:href="@{/{id}/products(categoryId=${cat.id})}" class="category-card-link">
+        <div class="category-card">
+          <div class="category-card__image" th:style="'background-image: url(' + @{/api/v1/images/category/{id}(id=${cat.id})} + ')'"></div>
+          <h3 class="category-card__title" th:text="${cat.title}"></h3>
+        </div>
+      </a>
+    </div>
+  </div>
+</main>
+
+<footer id="contacts" class="footer">
+  <div class="footer__inner">
+    <div class="footer__col footer__col--left">
+      <div class="footer__logo-row">
+        <a href="/static" class="footer__logo">
+          <span class="footer__logo-main">КРОЛЬЧАНСК</span>
+          <span class="footer__logo-sub">СОЮЗ фермерских хозяйств</span>
+        </a>
+        <a href="https://vk.com/krolchansk" class="footer__vk footer__vk--mobile" aria-label="ВКонтакте">
+          <img th:src="@{/images/footer-vk.svg}" width="50" height="50" alt="">
+        </a>
+      </div>
+      <div class="footer__contacts">
+        <p class="footer__contact-row">
+          <span class="footer__contact-label">Телефон: </span>
+          <a href="tel:+79213745301">8-921-374-53-01</a>
+        </p>
+        <p class="footer__contact-row">
+          <span class="footer__contact-label">Email: </span>
+          <a href="mailto:info@krolchansk.ru">info@krolchansk.ru</a>
+        </p>
+        <p class="footer__contact-city">г. Санкт-Петербург</p>
+      </div>
+    </div>
+    <div class="footer__col footer__col--center">
+      <div class="footer__divider" aria-hidden="true"></div>
+      <p class="footer__copy">© Copyright 2014-2026</p>
+    </div>
+  </div>
+</footer>
+<script th:src="@{/js/script.js}" src="../../static/js/script.js"></script>
+</body>
+</html>

@@ -3,6 +3,7 @@ package ru.krolchansk.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -19,11 +20,25 @@ public class ProdSecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) {
         http.authorizeHttpRequests(request ->
-                request.requestMatchers("/", "/css/**", "/images/**",
-                                "/js/**", "/order", "/order-created", "/actuator/health", "/api/v1/images/**")
-                        .permitAll()
-                        .anyRequest()
-                        .authenticated())
+                        request.requestMatchers(
+                                        "/",
+                                        "/css/**",
+                                        "/images/**",
+                                        "/js/**",
+                                        "/actuator/health",
+                                        "/api/v1/images/**",
+                                        "/catalog/**",
+                                        "/order/checkout",
+                                        "/order/success",
+                                        "/error",
+                                        "/error/**")
+                                .permitAll()
+                                .requestMatchers("/admin/**")
+                                .authenticated()
+                                .requestMatchers(HttpMethod.GET, "/**")
+                                .permitAll()
+                                .anyRequest()
+                                .authenticated())
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
                 )
