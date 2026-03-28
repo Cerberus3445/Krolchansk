@@ -15,7 +15,7 @@ import ru.krolchansk.order.dto.OrderDto;
 import ru.krolchansk.order.service.OrderService;
 import ru.krolchansk.security.DevSecurityConfig;
 import ru.krolchansk.web.admin.OrderAdminController;
-import ru.krolchansk.web.home.HomeController;
+import ru.krolchansk.web.order.OrderController;
 
 import java.time.LocalDateTime;
 
@@ -28,7 +28,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ActiveProfiles("dev")
 @Import(DevSecurityConfig.class)
-@WebMvcTest(value = {OrderAdminController.class, HomeController.class})
+@WebMvcTest(value = {OrderAdminController.class, OrderController.class})
 public class OrderAdminControllerTest {
 
     @MockitoBean
@@ -58,11 +58,11 @@ public class OrderAdminControllerTest {
         params.add("keepOrgans", "true");
 
         //Act & Assert
-        this.mockMvc.perform(multipart("/order")
+        this.mockMvc.perform(multipart("/order/checkout")
                         .params(params)
                         .with(csrf()))
                 .andExpect(status().is3xxRedirection())
-                .andExpect(redirectedUrl("/order-created"));
+                .andExpect(redirectedUrl("/order/success"));
 
         verify(this.orderService).create(any(OrderDto.class));
     }
@@ -82,11 +82,11 @@ public class OrderAdminControllerTest {
         params.add("keepOrgans", "true");
 
         //Act & Assert
-        this.mockMvc.perform(multipart("/order")
+        this.mockMvc.perform(multipart("/order/checkout")
                         .params(params)
                         .with(csrf()))
                 .andExpect(status().isOk())
-                .andExpect(view().name("home/index"));
+                .andExpect(view().name("order/checkout"));
 
         verify(this.orderService, never()).create(any(OrderDto.class));
     }
@@ -106,11 +106,11 @@ public class OrderAdminControllerTest {
         params.add("keepOrgans", "true");
 
         //Act & Assert
-        this.mockMvc.perform(multipart("/order")
+        this.mockMvc.perform(multipart("/order/checkout")
                         .params(params)
                         .with(csrf()))
                 .andExpect(status().isOk())
-                .andExpect(view().name("home/index"));
+                .andExpect(view().name("order/checkout"));
 
         verify(this.orderService, never()).create(any(OrderDto.class));
     }
@@ -130,11 +130,11 @@ public class OrderAdminControllerTest {
         params.add("keepOrgans", "true");
 
         //Act & Assert
-        this.mockMvc.perform(multipart("/order")
+        this.mockMvc.perform(multipart("/order/checkout")
                         .params(params)
                         .with(csrf()))
                 .andExpect(status().isOk())
-                .andExpect(view().name("home/index"));
+                .andExpect(view().name("order/checkout"));
 
         verify(this.orderService, never()).create(any(OrderDto.class));
     }
