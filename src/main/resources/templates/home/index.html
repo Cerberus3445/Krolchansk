@@ -38,11 +38,11 @@
                             <span></span><span></span>
                         </button>
                         <a href="#about" class="nav__link">О нас</a>
-                        <a href="#prices" class="nav__link">Цены</a>
+                        <a href="/catalog/products" class="nav__link">Цены</a>
                         <a href="#delivery" class="nav__link">Доставка</a>
-                        <a href="#order" class="nav__link">Заказать</a>
+                        <a href="/order/checkout" class="nav__link">Заказать</a>
                         <a href="#contacts" class="nav__link">Контакты</a>
-                        <a href="#order" class="nav__cta">Заказать звонок</a>
+                        <a href="/order/checkout" class="nav__cta">Заказать звонок</a>
                     </nav>
                     <div class="nav__backdrop" aria-hidden="true"></div>
                     <button type="button" class="btn btn--callback" aria-label="Заказать звонок">Заказать звонок</button>
@@ -55,7 +55,7 @@
                 <h1 class="hero__title">Мясо кролика с доставкой<br>по Санкт-Петербургу</h1>
                 <p class="hero__subtitle">Союз фермерских хозяйств «КРОЛЬЧАНСК» здесь можно купить кролика напрямую с фермы и
                     другие фермерские продукты с бесплатной доставкой на дом по СПб</p>
-                <a href="#order" class="btn btn--callback hero__btn-mobile">Заказать звонок</a>
+                <a href="/order/checkout" class="btn btn--callback hero__btn-mobile">Заказать звонок</a>
             </div>
         </div>
     </div>
@@ -275,6 +275,30 @@
             <div class="cta-features">
                 <span class="cta-feature">✔️ Бесплатная доставка от 1 тушки</span>
                 <span class="cta-feature">✔️ Ветконтроль</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="delivery" class="section section--delivery">
+    <div class="delivery__wrap">
+        <div class="delivery__hero">
+            <div class="delivery__bg"
+                 th:style="'background-image: url(' + @{/images/Subtract.png} + ')'"
+                 role="img" aria-hidden="true"></div>
+
+            <div class="delivery__bg delivery__bg--mobile"
+                 th:style="'background-image: url(' + @{/images/delivery-photo.png} + ')'"
+                 role="img" aria-hidden="true"></div>
+            <h2 class="delivery__title">Доставка фермерских продуктов в СПб</h2>
+            <a href="tel:+79213745301" class="delivery__phone">8-921-374-5301</a>
+        </div>
+        <div class="delivery__body">
+            <div class="delivery-text">
+                <p>1 раз в неделю доставляем тушки кроликов, печень кролика, филе кролика, кур, яйца перепела, фермерских
+                    продуктов в СПб</p>
+                <p>Есть СРОЧНАЯ ДОСТАВКА крольчатины, перепелов и др. в СПб. Возможен заказ кролика халяль, по договорённости.
+                    Бесплатно по СПб при заказе БОЛЬШЕ 1 тушки кролика!</p>
             </div>
         </div>
     </div>
