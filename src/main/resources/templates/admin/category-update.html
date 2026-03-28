@@ -55,10 +55,13 @@
                     <div class="image-placeholder" id="image-preview"
                          th:style="'background-image: url(' + @{/api/v1/images/category/{id}(id=${category.id})} + '); background-size: cover; background-position: center;'"></div>
                 </div>
+                <div th:if="${maxFileSizeError}" >
+                    <h3 style="color: red" th:text="${maxFileSizeError}">Размер файла превышает лимит</h3>
+                </div>
             </div>
 
             <div class="form-group">
-                <label>Изображение категории (оставьте пустым, чтобы не менять)</label>
+                <label>Изображение категории (оставьте пустым, чтобы не менять)(размер изображения не должен превышать 5 мб в формате JPEG, PNG или WEBP)</label>
                 <div class="file-upload-wrapper">
                     <label for="file-upload" class="file-btn">Выбрать новый файл</label>
                     <input type="file" id="file-upload" name="imageFile" accept="image/*">
@@ -96,39 +99,6 @@
         </div>
     </footer>
 </div>
-
-<script>
-    const fileInput = document.getElementById('file-upload');
-    const preview = document.getElementById('image-preview');
-    const fileNameSpan = document.querySelector('.file-name');
-
-    // Функция обновления превью
-    function updatePreview(file) {
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(e) {
-                preview.style.backgroundImage = `url(${e.target.result})`;
-                preview.style.backgroundSize = 'cover';
-                preview.style.backgroundPosition = 'center';
-            };
-            reader.readAsDataURL(file);
-        } else {
-
-        }
-    }
-
-    fileInput.addEventListener('change', function() {
-        const file = this.files[0];
-        const fileName = file ? file.name : 'Файл не выбран';
-        fileNameSpan.textContent = fileName;
-
-        if (file) {
-            updatePreview(file);
-        } else {
-            preview.style.backgroundImage = '';
-        }
-    });
-</script>
-
+<script th:src="@{/js/image-validator.js}" src="../../static/js/image-validator.js"></script>
 </body>
 </html>
