@@ -10,12 +10,12 @@ spring:
     show-sql: true
     open-in-view: false
   datasource:
-    url: jdbc:sqlite:data/krolchansk.db
+    url: jdbc:sqlite:/data/krolchansk.db
     username: postgres
     password: password
     driver-class-name: org.sqlite.JDBC
   flyway:
-    url: jdbc:sqlite:data/krolchansk.db
+    url: jdbc:sqlite:/data/krolchansk.db
     user: postgres
     password: password
     baseline-on-migrate: true
