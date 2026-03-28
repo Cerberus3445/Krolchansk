@@ -33,11 +33,16 @@ public class ProdSecurityConfig {
 
     @Bean
     public UserDetailsService userDetails() {
-        UserDetails user = User.builder()
-                .username("admin")
+        UserDetails first = User.builder()
+                .username("admin-1")
                 .password("{bcrypt}$2a$12$aolOaYy2pOBBYQIc0K4C2uJshhh5yx9.EO41z2vdFKGP.dkUOMk8.")
                 .build();
 
-        return new InMemoryUserDetailsManager(user);
+        UserDetails second = User.builder()
+                .username("admin-2")
+                .password("{bcrypt}$2a$12$aolOaYy2pOBBYQIc0K4C2uJshhh5yx9.EO41z2vdFKGP.dkUOMk8.")
+                .build();
+
+        return new InMemoryUserDetailsManager(first, second);
     }
 }
