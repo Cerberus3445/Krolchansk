@@ -12,6 +12,16 @@
 </head>
 
 <body>
+<div id="preloader">
+    <div class="preloader-content">
+        <div class="preloader-logo">
+            <span class="preloader-logo-main">КРОЛЬЧАНСК</span>
+            <span class="preloader-logo-sub">СОЮЗ фермерских хозяйств</span>
+        </div>
+        <div class="preloader-spinner"></div>
+        <p class="preloader-text">Загрузка...</p>
+    </div>
+</div>
 <header class="hero-section">
     <div class="hero-section__inner">
         <div class="hero">
@@ -392,6 +402,17 @@
 </footer>
 
 <script th:src="@{/js/script.js}" src="../../static/js/script.js"></script>
+<script>
+    setTimeout(function() {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.style.opacity = '0';
+            setTimeout(function() {
+                preloader.style.display = 'none';
+            }, 300);
+        }
+    }, 3500);
+</script>
 </body>
 
 </html>
