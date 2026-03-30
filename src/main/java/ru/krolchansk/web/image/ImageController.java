@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.krolchansk.category.service.CategoryService;
-import ru.krolchansk.product.service.ProductService;
+import ru.krolchansk.domain.category.service.CategoryService;
+import ru.krolchansk.domain.product.service.ProductService;
 
 @RestController
 @RequestMapping("/api/v1/images")

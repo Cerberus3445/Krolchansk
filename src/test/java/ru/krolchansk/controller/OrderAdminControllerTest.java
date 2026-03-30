@@ -10,10 +10,10 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import ru.krolchansk.category.service.CategoryService;
-import ru.krolchansk.order.dto.OrderDto;
-import ru.krolchansk.order.service.OrderService;
-import ru.krolchansk.security.DevSecurityConfig;
+import ru.krolchansk.domain.category.service.CategoryService;
+import ru.krolchansk.domain.order.dto.OrderDto;
+import ru.krolchansk.domain.order.service.OrderService;
+import ru.krolchansk.infrastructure.security.DevSecurityConfig;
 import ru.krolchansk.web.admin.OrderAdminController;
 import ru.krolchansk.web.order.OrderController;
 

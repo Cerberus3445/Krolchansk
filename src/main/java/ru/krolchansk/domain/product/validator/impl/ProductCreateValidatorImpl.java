@@ -1,0 +1,26 @@
+package ru.krolchansk.domain.product.validator.impl;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+import ru.krolchansk.domain.common.util.ExceptionUtils;
+import ru.krolchansk.domain.product.dto.ProductDto;
+import ru.krolchansk.domain.product.service.ProductService;
+import ru.krolchansk.domain.product.validator.ProductCreateValidator;
+
+@Slf4j
+@Component
+@RequiredArgsConstructor
+public class ProductCreateValidatorImpl implements ProductCreateValidator {
+
+    private final ProductService productService;
+
+    @Override
+    public void validate(ProductDto productDto){
+        log.info("validate {}", productDto);
+
+        if(this.productService.getByTitle(productDto.getTitle()).isPresent()){
+            throw ExceptionUtils.alreadyExists("error.category.already_exists", productDto.getTitle());
+        }
+    }
+}

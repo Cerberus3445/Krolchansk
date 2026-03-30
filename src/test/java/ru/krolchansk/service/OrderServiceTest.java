@@ -8,12 +8,12 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ru.krolchansk.common.exception.NotFoundException;
-import ru.krolchansk.order.dto.OrderDto;
-import ru.krolchansk.order.entity.Order;
-import ru.krolchansk.order.mapper.OrderMapper;
-import ru.krolchansk.order.repository.OrderRepository;
-import ru.krolchansk.order.service.impl.DefaultOrderService;
+import ru.krolchansk.domain.common.exception.NotFoundException;
+import ru.krolchansk.domain.order.dto.OrderDto;
+import ru.krolchansk.domain.order.entity.Order;
+import ru.krolchansk.domain.order.mapper.OrderMapper;
+import ru.krolchansk.domain.order.repository.OrderRepository;
+import ru.krolchansk.domain.order.service.impl.DefaultOrderService;
 
 import java.time.LocalDateTime;
 import java.util.List;

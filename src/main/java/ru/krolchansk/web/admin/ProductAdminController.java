@@ -7,12 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import ru.krolchansk.category.service.CategoryService;
-import ru.krolchansk.product.dto.ProductDto;
-import ru.krolchansk.product.entity.Unit;
-import ru.krolchansk.product.service.ProductService;
-import ru.krolchansk.product.validator.ProductCreateValidator;
-import ru.krolchansk.product.validator.ProductUpdateValidator;
+import ru.krolchansk.domain.category.service.CategoryService;
+import ru.krolchansk.domain.product.dto.ProductDto;
+import ru.krolchansk.domain.product.entity.Unit;
+import ru.krolchansk.domain.product.service.ProductService;
+import ru.krolchansk.domain.product.validator.ProductCreateValidator;
+import ru.krolchansk.domain.product.validator.ProductUpdateValidator;
 
 import java.io.IOException;
 

@@ -11,11 +11,11 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import ru.krolchansk.category.service.CategoryService;
-import ru.krolchansk.product.dto.ProductDto;
-import ru.krolchansk.product.entity.Unit;
-import ru.krolchansk.product.service.ProductService;
-import ru.krolchansk.security.DevSecurityConfig;
+import ru.krolchansk.domain.category.service.CategoryService;
+import ru.krolchansk.domain.product.dto.ProductDto;
+import ru.krolchansk.domain.product.entity.Unit;
+import ru.krolchansk.domain.product.service.ProductService;
+import ru.krolchansk.infrastructure.security.DevSecurityConfig;
 import ru.krolchansk.web.admin.ProductAdminController;
 
 import java.math.BigDecimal;
