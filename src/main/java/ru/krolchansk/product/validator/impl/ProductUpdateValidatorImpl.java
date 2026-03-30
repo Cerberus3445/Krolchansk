@@ -22,12 +22,12 @@ public class ProductUpdateValidatorImpl implements ProductUpdateValidator {
     private final ProductService productService;
 
     @Override
-    public void validate(ProductDto productDto){
+    public void validate(Integer id, ProductDto productDto){
         log.info("validate {}", productDto);
 
         Optional<Product> foundCategory = this.productService.getByTitle(productDto.getTitle());
 
-        if(foundCategory.isPresent() && !Objects.equals(productDto.getId(), foundCategory.get().getId())
+        if(foundCategory.isPresent() && !Objects.equals(id, foundCategory.get().getId())
                 && productDto.getTitle().equalsIgnoreCase(foundCategory.get().getTitle())){
             throw ExceptionUtils.alreadyExists("error.category.already_exists", productDto.getTitle());
         }

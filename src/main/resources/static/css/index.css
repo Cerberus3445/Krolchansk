@@ -2212,6 +2212,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     background-size: cover;
     background-position: center;
     background-color: #2a323d;
+    border-radius: 16px;
 }
 .category-card__title {
     padding: 20px;
@@ -2257,6 +2258,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     background-size: cover;
     background-position: center;
     background-color: #2a323d;
+    border-radius: 16px;
 }
 .product-card__info {
     padding: 20px;

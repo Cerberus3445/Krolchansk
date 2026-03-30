@@ -1,6 +1,6 @@
 package ru.krolchansk.common.validator;
 
-public interface UpdateValidator<T> {
+public interface UpdateValidator<T, ID> {
 
-    void validate(T dto);
+    void validate(ID id, T dto);
 }

@@ -113,6 +113,9 @@
                 <small class="hint-text">Если не выбирать файл, текущее изображение останется без изменений</small>
             </div>
 
+            <div th:if="${alreadyExistsError}" >
+                <h3 style="color: red" th:text="${alreadyExistsError}">Сущность уже существует</h3>
+            </div>
             <div class="form-actions">
                 <button type="submit" class="btn">Сохранить изменения</button>
                 <a href="/admin/products" class="btn btn-outline">Отмена</a>

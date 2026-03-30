@@ -20,11 +20,11 @@ public class CategoryUpdateValidatorImpl implements CategoryUpdateValidator {
     private final CategoryService categoryService;
 
     @Override
-    public void validate(CategoryDto categoryDto){
+    public void validate(Integer id, CategoryDto categoryDto){
         log.info("validate {}", categoryDto);
         Optional<Category> foundCategory = this.categoryService.getByTitle(categoryDto.getTitle());
 
-        if(foundCategory.isPresent() && !Objects.equals(categoryDto.getId(), foundCategory.get().getId())
+        if(foundCategory.isPresent() && !Objects.equals(id, foundCategory.get().getId())
                 && categoryDto.getTitle().equalsIgnoreCase(foundCategory.get().getTitle())){
             throw ExceptionUtils.alreadyExists("error.category.already_exists", categoryDto.getTitle());
         }
