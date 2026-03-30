@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import ru.krolchansk.order.dto.OrderDto;
-import ru.krolchansk.order.entity.Order;
-import ru.krolchansk.order.service.OrderService;
+import ru.krolchansk.domain.order.dto.OrderDto;
+import ru.krolchansk.domain.order.entity.Order;
+import ru.krolchansk.domain.order.service.OrderService;
 
 @Controller
 @RequestMapping("/order")

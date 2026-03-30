@@ -7,8 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import ru.krolchansk.category.dto.CategoryDto;
-import ru.krolchansk.category.service.CategoryService;
+import ru.krolchansk.domain.category.dto.CategoryDto;
+import ru.krolchansk.domain.category.service.CategoryService;
+import ru.krolchansk.domain.category.validator.CategoryCreateValidator;
+import ru.krolchansk.domain.category.validator.CategoryUpdateValidator;
 
 import java.io.IOException;
 
@@ -18,6 +20,10 @@ import java.io.IOException;
 public class CategoryAdminController {
 
     private final CategoryService categoryService;
+
+    private final CategoryCreateValidator categoryCreateValidator;
+
+    private final CategoryUpdateValidator categoryUpdateValidator;
 
     @GetMapping
     public String categoriesPage(Model model) {
@@ -40,6 +46,8 @@ public class CategoryAdminController {
         if (bindingResult.hasErrors()){
             return "admin/category-create";
         }
+
+        this.categoryCreateValidator.validate(categoryDto);
 
         if(multipartFile != null && !multipartFile.isEmpty()) {
             categoryDto.setImage(multipartFile.getBytes());
@@ -66,6 +74,8 @@ public class CategoryAdminController {
         if (bindingResult.hasErrors()) {
             return "admin/category-update";
         }
+
+        this.categoryUpdateValidator.validate(id, categoryDto);
 
         if (multipartFile != null && !multipartFile.isEmpty()) {
             categoryDto.setImage(multipartFile.getBytes());

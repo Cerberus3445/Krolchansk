@@ -63,6 +63,9 @@
                 </div>
             </div>
 
+            <div th:if="${alreadyExistsError}" >
+                <h3 style="color: red" th:text="${alreadyExistsError}">Сущность уже существует</h3>
+            </div>
             <div class="form-actions">
                 <button type="submit" class="btn">Добавить категорию</button>
             </div>
@@ -87,7 +90,7 @@
         </div>
 
         <div>
-            <a href="#" class="social-icon">VK</a>
+            <a href="https://vk.com/krolchansk" class="social-icon">VK</a>
         </div>
     </footer>
 </div>
