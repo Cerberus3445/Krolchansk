@@ -180,7 +180,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .header-bar .logo__main {
     font-family: "Etude Noire", var(--font-display);
     font-weight: 500;
-    font-size: 32px;
+    font-size: 28px;
     line-height: 1.05;
     color: var(--color-white);
 }
@@ -188,7 +188,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 .header-bar .logo__sub {
     font-family: "Farabee", var(--font-body);
     font-weight: 400;
-    font-size: 24px;
+    font-size: 12px;
     color: var(--color-text-muted-60);
 }
 
@@ -2080,14 +2080,20 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     color: var(--color-white);
     display: block;
     line-height: 1.05;
+
+    letter-spacing: 0.15em;
+    text-indent: 0.15em;
+    text-transform: uppercase;
 }
 
 .preloader-logo-sub {
     font-family: var(--font-body);
-    font-size: 24px;
+    font-size: 14px;
     color: var(--color-text-muted-60);
     display: block;
     margin-top: 8px;
+
+    letter-spacing: 0.1em;
 }
 
 .preloader-spinner {

@@ -48,8 +48,11 @@ public class ProductAdminController {
     @PostMapping("/create")
     public String create(@ModelAttribute("product") @Valid ProductDto productDto,
                          BindingResult bindingResult,
-                         @RequestParam("imageFile") MultipartFile multipartFile) throws IOException {
-        if (bindingResult.hasErrors()){
+                         @RequestParam("imageFile") MultipartFile multipartFile,
+                         Model model) throws IOException {
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("categories", this.categoryService.getAll());
+            model.addAttribute("units", Unit.values());
             return "admin/product-create";
         }
 
@@ -78,8 +81,11 @@ public class ProductAdminController {
     public String update(@PathVariable Integer id,
                          @ModelAttribute("product") @Valid ProductDto productDto,
                          BindingResult bindingResult,
-                         @RequestParam("imageFile") MultipartFile multipartFile) throws IOException {
+                         @RequestParam("imageFile") MultipartFile multipartFile,
+                         Model model) throws IOException {
         if (bindingResult.hasErrors()) {
+            model.addAttribute("categories", this.categoryService.getAll());
+            model.addAttribute("units", Unit.values());
             return "admin/product-update";
         }
 

@@ -7,7 +7,7 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
-    show-sql: true
+    show-sql: false
     open-in-view: false
   datasource:
     url: jdbc:sqlite:data/krolchansk.db
@@ -26,6 +26,11 @@ spring:
     multipart:
       max-file-size: 5MB
       enabled: true
+
+springdoc:
+  swagger-ui:
+    csrf:
+      enabled: false
 
 logging:
   level:

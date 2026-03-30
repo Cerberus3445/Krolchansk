@@ -11,6 +11,8 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import ru.krolchansk.domain.category.dto.CategoryDto;
 import ru.krolchansk.domain.category.service.CategoryService;
+import ru.krolchansk.domain.category.validator.CategoryCreateValidator;
+import ru.krolchansk.domain.category.validator.CategoryUpdateValidator;
 import ru.krolchansk.infrastructure.security.DevSecurityConfig;
 import ru.krolchansk.web.admin.CategoryAdminController;
 
@@ -35,6 +37,12 @@ public class CategoryAdminControllerTest {
 
     @MockitoBean
     private CacheManager cacheManager;
+
+    @MockitoBean
+    private CategoryCreateValidator createValidator;
+
+    @MockitoBean
+    private CategoryUpdateValidator updateValidator;
 
     @Test
     void create_WhenValidDataProvided_ShouldRedirectToCategoriesPage() throws Exception {

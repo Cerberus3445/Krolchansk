@@ -15,6 +15,8 @@ import ru.krolchansk.domain.category.service.CategoryService;
 import ru.krolchansk.domain.product.dto.ProductDto;
 import ru.krolchansk.domain.product.entity.Unit;
 import ru.krolchansk.domain.product.service.ProductService;
+import ru.krolchansk.domain.product.validator.ProductCreateValidator;
+import ru.krolchansk.domain.product.validator.ProductUpdateValidator;
 import ru.krolchansk.infrastructure.security.DevSecurityConfig;
 import ru.krolchansk.web.admin.ProductAdminController;
 
@@ -45,7 +47,13 @@ public class ProductAdminControllerTest {
     @MockitoBean
     private CacheManager cacheManager;
 
-    private Integer productId = 1;
+    @MockitoBean
+    private ProductCreateValidator createValidator;
+
+    @MockitoBean
+    private ProductUpdateValidator updateValidator;
+
+    private final Integer productId = 1;
 
     @Test
     void create_WhenValidDataProvided_ShouldRedirectToCategoriesPage() throws Exception {
