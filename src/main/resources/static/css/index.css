@@ -2149,28 +2149,94 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     text-align: center;
 }
 
+/* Главный контейнер блока */
 .cta-block {
-    max-width: 700px;
+    position: relative;
+    max-width: 1400px; /* Делаем контейнер шире, чтобы картинка могла стать больше */
     margin: 0 auto;
+    padding: 60px 20px;
+    display: flex;
+    align-items: center; /* Центрируем правую и левую колонки по высоте */
+    justify-content: space-between;
+    gap: 80px; /* Увеличиваем отступ между фото и текстом */
 }
 
+/* Левая часть - Изображение */
+.cta-image {
+    flex: 0 0 50%; /* Картинка теперь стабильно занимает 50% ширины */
+    max-width: 650px; /* Увеличили максимальный размер */
+    border-radius: 24px; /* Чуть более плавное скругление */
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); /* Красивая глубокая тень */
+}
+
+.cta-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    aspect-ratio: 4 / 3; /* Сохраняем красивые пропорции */
+}
+
+/* Правая часть - Текст и контент */
+.cta-content {
+    flex: 1; /* Занимает всю оставшуюся половину */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* ЖЕСТКО прижимаем все элементы внутри к левому краю */
+    text-align: left; /* Выравниваем текст по левому краю */
+}
+
+/* Заголовок */
 .cta-title {
     font-family: var(--font-display);
-    font-size: 48px;
-    margin-bottom: 20px;
+    font-size: 56px; /* Сделали шрифт крупнее, чтобы балансировал с большой картинкой */
+    font-weight: 500;
+    margin-bottom: 24px;
+    color: var(--color-white, #fff);
+    line-height: 1.1;
+    text-align: left !important; /* Принудительно влево */
+    width: 100%;
 }
 
+/* Описание */
 .cta-text {
-    font-size: 24px;
-    color: var(--color-text-muted);
+    font-size: 22px; /* Чуть увеличили текст */
+    color: rgba(255,255,255,0.9);
     margin-bottom: 40px;
+    line-height: 1.5;
+    text-align: left !important; /* Принудительно влево */
+    width: 100%;
 }
 
+/* Кнопки */
 .cta-buttons {
     display: flex;
-    gap: 20px;
-    justify-content: center;
     flex-wrap: wrap;
+    gap: 20px;
+    justify-content: flex-start !important; /* Прижимаем влево */
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+/* Преимущества (галочки) снизу */
+.cta-features {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start !important; /* Прижимаем влево */
+    gap: 32px;
+    font-size: 18px;
+    color: rgba(255,255,255,0.8);
+    width: 100%;
+}
+
+.cta-features {
+    display: flex;
+    justify-content: flex-start;
+    gap: 32px;
+    flex-wrap: wrap;
+    font-size: 16px;
+    color: rgba(255,255,255,0.8);
 }
 
 .btn--primary {
@@ -2395,6 +2461,21 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     .site-header .header__burger {
         display: flex;
     }
+
+    .cta-block {
+        flex-direction: column; /* Складываем элементы друг под друга */
+        text-align: center; /* Возвращаем текст по центру */
+        gap: 40px;
+    }
+
+    .cta-image {
+        max-width: 100%;
+        flex: auto;
+    }
+
+    .cta-buttons, .cta-features {
+        justify-content: center; /* Кнопки снова по центру */
+    }
 }
 
 /* Улучшенный CTA-блок */
@@ -2417,11 +2498,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 }
 
 .cta-block {
-    position: relative;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 100px; /* Огромный отступ для "воздуха" */
+    padding: 80px 0;
 }
 
 .cta-icon {
@@ -2529,13 +2610,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     }
     .cta-buttons {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
     }
     .btn--primary, .btn--outline {
         width: 100%;
-        max-width: 280px;
-        text-align: center;
-        justify-content: center;
+        max-width: none;
     }
     .cta-features {
         flex-direction: column;

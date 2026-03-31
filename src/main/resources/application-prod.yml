@@ -32,6 +32,16 @@ springdoc:
     csrf:
       enabled: false
 
+admin:
+  password: $2a$12$aolOaYy2pOBBYQIc0K4C2uJshhh5yx9.EO41z2vdFKGP.dkUOMk8.
+
+url:
+  yandex: https://smartcaptcha.yandexcloud.net
+
+captcha:
+  key: ysc1_YaDiVwUIQg3EX0J6xy5Bce7fw6bcM69J9SkGtwJsc11fe86d
+  secret: ysc2_YaDiVwUIQg3EX0J6xy5BCEbV1AXXiwkXliFocbhI2b74db84
+
 logging:
   level:
     org:

@@ -433,7 +433,9 @@ main {
         padding: 12px 12px;
     }
     .order-form__field input {
-        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch; /* чтобы input не схлопывался */
     }
     .order-form__checkbox {
         font-size: 16px;
