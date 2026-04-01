@@ -14,8 +14,8 @@ import ru.krolchansk.domain.category.service.CategoryService;
 import ru.krolchansk.domain.order.dto.OrderDto;
 import ru.krolchansk.domain.order.service.OrderService;
 import ru.krolchansk.infrastructure.security.DevSecurityConfig;
-import ru.krolchansk.web.admin.OrderAdminController;
-import ru.krolchansk.web.order.OrderController;
+import ru.krolchansk.web.controller.admin.OrderAdminController;
+import ru.krolchansk.web.controller.order.OrderController;
 
 import java.time.LocalDateTime;
 

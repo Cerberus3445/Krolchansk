@@ -1,4 +1,4 @@
-package ru.krolchansk.web.order;
+package ru.krolchansk.web.controller.order;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

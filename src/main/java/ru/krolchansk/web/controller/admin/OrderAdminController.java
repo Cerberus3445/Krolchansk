@@ -1,4 +1,4 @@
-package ru.krolchansk.web.admin;
+package ru.krolchansk.web.controller.admin;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

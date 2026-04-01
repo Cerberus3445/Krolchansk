@@ -18,7 +18,7 @@ import ru.krolchansk.domain.product.service.ProductService;
 import ru.krolchansk.domain.product.validator.ProductCreateValidator;
 import ru.krolchansk.domain.product.validator.ProductUpdateValidator;
 import ru.krolchansk.infrastructure.security.DevSecurityConfig;
-import ru.krolchansk.web.admin.ProductAdminController;
+import ru.krolchansk.web.controller.admin.ProductAdminController;
 
 import java.math.BigDecimal;
 

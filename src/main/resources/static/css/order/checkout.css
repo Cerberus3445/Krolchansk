@@ -49,7 +49,7 @@ body {
     line-height: 1.5;
     color: var(--color-white);
     background-color: var(--color-prices-bg);
-    background-image: url("../images/pattern.svg");
+    background-image: url("../../images/pattern.svg");
     background-repeat: repeat;
     min-height: 100vh;
     display: flex;

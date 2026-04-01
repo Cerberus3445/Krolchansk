@@ -63,7 +63,7 @@ body {
     line-height: 1.5;
     color: var(--color-white);
     background-color: var(--color-prices-bg);
-    background-image: url("../images/pattern.svg");
+    background-image: url("../../images/pattern.svg");
     background-repeat: repeat;
     background-position: 0 0;
     overflow-x: hidden;
@@ -119,7 +119,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     position: absolute;
     inset: 0;
     z-index: 0;
-    background-image: url("../images/hero-bg.png");
+    background-image: url("../../images/hero-bg.png");
     background-size: cover;
     background-position: center;
     pointer-events: none;
@@ -131,7 +131,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     z-index: 1;
     border-radius: 20px;
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.7) 18.27%, rgba(0, 0, 0, 0) 100%),
-    url("../images/hero-bg.png") lightgray 0.421px 0px / 99.954% 100% no-repeat;
+    url("../../images/hero-bg.png") lightgray 0.421px 0px / 99.954% 100% no-repeat;
 }
 
 .header-bar {
@@ -371,11 +371,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 0;
 }
-.feature-card--1 .feature-card__bg { background-image: url("../images/card-1-4aae04.png"); background-size: cover; background-position: center; }
-.feature-card--2 .feature-card__bg { background-image: url("../images/card-2-71cae8.png"); background-size: cover; background-position: center; }
-.feature-card--3 .feature-card__bg { background-image: url("../images/card-3-71cae8.png"); background-size: cover; background-position: center; }
-.feature-card--4 .feature-card__bg { background-image: url("../images/card-4-4aae04.png"); background-size: cover; background-position: center; }
-.feature-card--5 .feature-card__bg { background-image: url("../images/card-5-71cae8.png"); background-size: cover; background-position: center; }
+.feature-card--1 .feature-card__bg { background-image: url("../../images/card-1-4aae04.png"); background-size: cover; background-position: center; }
+.feature-card--2 .feature-card__bg { background-image: url("../../images/card-2-71cae8.png"); background-size: cover; background-position: center; }
+.feature-card--3 .feature-card__bg { background-image: url("../../images/card-3-71cae8.png"); background-size: cover; background-position: center; }
+.feature-card--4 .feature-card__bg { background-image: url("../../images/card-4-4aae04.png"); background-size: cover; background-position: center; }
+.feature-card--5 .feature-card__bg { background-image: url("../../images/card-5-71cae8.png"); background-size: cover; background-position: center; }
 .feature-card--1 .feature-card__bg,
 .feature-card--2 .feature-card__bg,
 .feature-card--3 .feature-card__bg,
@@ -432,7 +432,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     position: absolute;
     inset: 0;
     z-index: 0;
-    background-image: url("../images/about-pattern.svg");
+    background-image: url("../../images/about-pattern.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -611,9 +611,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     line-height: 1.05029296875;
     color: #1a2229;
 }
-.prices-tab--meat { background-color: #e8e8e8; background-image: url("../images/prices-tab-meat.png"); }
-.prices-tab--poultry { background-color: #e8e8e8; background-image: url("../images/prices-tab-poultry.png"); }
-.prices-tab--dairy { background-color: #e8e8e8; background-image: url("../images/prices-tab-dairy.png"); }
+.prices-tab--meat { background-color: #e8e8e8; background-image: url("../../images/prices-tab-meat.png"); }
+.prices-tab--poultry { background-color: #e8e8e8; background-image: url("../../images/prices-tab-poultry.png"); }
+.prices-tab--dairy { background-color: #e8e8e8; background-image: url("../../images/prices-tab-dairy.png"); }
 .prices-tab--active {
     background-color: var(--color-btn-green);
     background-image: none;
@@ -864,7 +864,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     flex-shrink: 0;
     width: 65px;
     height: 65px;
-    background-image: url("../images/arrow-up.svg");
+    background-image: url("../../images/arrow-up.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
@@ -1068,7 +1068,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     transition: background 0.2s, border-color 0.2s;
 }
 .order-form__checkbox input:checked {
-    background: url("../images/form-checkbox.svg") center/contain no-repeat;
+    background: url("../../images/form-checkbox.svg") center/contain no-repeat;
     border-color: transparent;
 }
 .btn--submit {
@@ -1401,7 +1401,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     }
     .hero__overlay {
         background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-        url("../images/hero-bg.png") center/cover no-repeat;
+        url("../../images/hero-bg.png") center/cover no-repeat;
     }
     .header-bar {
         margin: 0;
@@ -2054,7 +2054,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
     width: 100%;
     height: 100%;
     background: var(--color-prices-bg);
-    background-image: url("../images/pattern.svg");
+    background-image: url("../../images/pattern.svg");
     background-repeat: repeat;
     z-index: 9999;
     display: flex;
