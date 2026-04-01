@@ -1,4 +1,4 @@
-package ru.krolchansk.web.image;
+package ru.krolchansk.web.controller.image;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;

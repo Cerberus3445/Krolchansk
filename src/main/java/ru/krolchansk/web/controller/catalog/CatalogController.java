@@ -1,4 +1,4 @@
-package ru.krolchansk.web.catalog;
+package ru.krolchansk.web.controller.catalog;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

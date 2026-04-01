@@ -14,7 +14,7 @@ import ru.krolchansk.domain.category.service.CategoryService;
 import ru.krolchansk.domain.category.validator.CategoryCreateValidator;
 import ru.krolchansk.domain.category.validator.CategoryUpdateValidator;
 import ru.krolchansk.infrastructure.security.DevSecurityConfig;
-import ru.krolchansk.web.admin.CategoryAdminController;
+import ru.krolchansk.web.controller.admin.CategoryAdminController;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;

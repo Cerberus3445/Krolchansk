@@ -28,5 +28,15 @@ spring:
       max-file-size: 5MB
       enabled: true
 
+admin:
+  password: $2a$12$aolOaYy2pOBBYQIc0K4C2uJshhh5yx9.EO41z2vdFKGP.dkUOMk8.
+
+url:
+  yandex: https://smartcaptcha.yandexcloud.net
+
+captcha:
+  key:
+  secret:
+
 server:
   port: 8080

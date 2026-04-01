@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Крольчанск — Мясо кролика с доставкой по Санкт-Петербургу</title>
-    <link rel="stylesheet" th:href="@{/css/index.css}" href="../../static/css/index.css">
+    <link rel="stylesheet" th:href="@{/css/home/index.css}" href="../../static/css/home/index.css">
     <link rel="icon" type="image/x-icon" th:href="@{/images/favicon.ico}" href="../../static/images/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,8 +46,9 @@
                         <a href="/order/checkout" class="nav__cta">Заказать звонок</a>
                     </nav>
                     <div class="nav__backdrop" aria-hidden="true"></div>
-                    <button type="button" class="btn btn--callback" aria-label="Заказать звонок">Заказать звонок</button>
-                    <button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
+                    <a href="/order/checkout" class="btn btn--callback" aria-label="Заказать звонок">
+                        Заказать звонок
+                    </a>                    <button class="header__burger" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="main-nav">
                         <span></span><span></span><span></span>
                     </button>
                 </div>
@@ -56,7 +57,9 @@
                 <h1 class="hero__title">Мясо кролика с доставкой<br>по Санкт-Петербургу</h1>
                 <p class="hero__subtitle">Союз фермерских хозяйств «КРОЛЬЧАНСК» здесь можно купить кролика напрямую с фермы и
                     другие фермерские продукты с бесплатной доставкой на дом по СПб</p>
-                <a href="/order/checkout" class="btn btn--callback hero__btn-mobile">Заказать звонок</a>
+                <a href="/order/checkout" class="btn btn--callback" aria-label="Заказать звонок">
+                    Заказать звонок
+                </a>
             </div>
         </div>
     </div>
@@ -260,22 +263,24 @@
 <section class="section section--cta">
     <div class="container">
         <div class="cta-block">
-            <div class="cta-icon">🥩</div>
-            <h2 class="cta-title">Попробуйте настоящее фермерское мясо кролика</h2>
-            <p class="cta-text">
-                Свежее, экологически чистое, выращенное с любовью на наших фермах.<br>
-                Доставка по Санкт-Петербургу в день забоя.
-            </p>
-            <div class="cta-buttons">
-                <a href="/catalog/categories" class="btn btn--primary">
-                    <span>Выбрать категорию</span>
-                    <span class="btn-arrow">→</span>
-                </a>
-                <a href="/catalog/products" class="btn btn--outline">Посмотреть все товары</a>
+            <div class="cta-image">
+                <img th:src="@{/images/card-3-71cae8.png}" src="../../static/images/card-3-71cae8.png"
+                     class="cta-image__img" alt="Мясо кролика">
             </div>
-            <div class="cta-features">
-                <span class="cta-feature">✔️ Бесплатная доставка от 1 тушки</span>
-                <span class="cta-feature">✔️ Ветконтроль</span>
+
+            <div class="cta-content">
+                <h2 class="cta-title">Попробуйте настоящее фермерское мясо кролика</h2>
+                <p class="cta-text">
+                    Свежее, экологически чистое, выращенное с любовью на наших фермах.<br>
+                    Доставка по Санкт-Петербургу в день забоя.
+                </p>
+                <div class="cta-buttons">
+                    <a href="/catalog/categories" class="btn btn--primary">
+                        <span>Выбрать категорию</span>
+                        <span class="btn-arrow">→</span>
+                    </a>
+                    <a href="/catalog/products" class="btn btn--outline">Посмотреть все товары</a>
+                </div>
             </div>
         </div>
     </div>

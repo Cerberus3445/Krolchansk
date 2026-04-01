@@ -49,7 +49,7 @@ body {
     line-height: 1.5;
     color: var(--color-white);
     background-color: var(--color-prices-bg);
-    background-image: url("../images/pattern.svg");
+    background-image: url("../../images/pattern.svg");
     background-repeat: repeat;
     min-height: 100vh;
     display: flex;
@@ -433,7 +433,9 @@ main {
         padding: 12px 12px;
     }
     .order-form__field input {
-        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch; /* чтобы input не схлопывался */
     }
     .order-form__checkbox {
         font-size: 16px;

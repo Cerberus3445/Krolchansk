@@ -1,5 +1,6 @@
 package ru.krolchansk.infrastructure.security;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -16,6 +17,9 @@ import org.springframework.security.web.SecurityFilterChain;
 @Profile("prod")
 @Configuration
 public class ProdSecurityConfig {
+
+    @Value("${admin.password}")
+    private String password;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) {
@@ -49,15 +53,20 @@ public class ProdSecurityConfig {
     @Bean
     public UserDetailsService userDetails() {
         UserDetails first = User.builder()
+                .username("admin")
+                .password("{bcrypt}" + password)
+                .build();
+
+        UserDetails second = User.builder()
                 .username("admin-1")
                 .password("{bcrypt}$2a$12$aolOaYy2pOBBYQIc0K4C2uJshhh5yx9.EO41z2vdFKGP.dkUOMk8.")
                 .build();
 
-        UserDetails second = User.builder()
+        UserDetails third = User.builder()
                 .username("admin-2")
                 .password("{bcrypt}$2a$12$aolOaYy2pOBBYQIc0K4C2uJshhh5yx9.EO41z2vdFKGP.dkUOMk8.")
                 .build();
 
-        return new InMemoryUserDetailsManager(first, second);
+        return new InMemoryUserDetailsManager(first, second, third);
     }
 }
