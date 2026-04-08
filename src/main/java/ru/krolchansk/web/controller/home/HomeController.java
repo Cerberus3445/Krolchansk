@@ -13,9 +13,4 @@ public class HomeController {
         return "home/index";
     }
 
-    @GetMapping("/order-created")
-    public String orderCreatedPage() {
-
-        return "home/order-created";
-    }
 }
